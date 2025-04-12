@@ -1,37 +1,163 @@
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   align-content: center;
   text-align: center;
   color: white;
+  margin: 0;
+  padding-top: 90px; 
 }
-ul li{
+
+ul li {
   list-style-type: none;
-  }
+}
 
 .navbar {
-display: flex;
-justify-content: center; /* Centraliza os links */
-background-color: #43C153;
-padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #43C153;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease; 
+  padding: 20px 0;
 }
 
-.navbar a {
-  color: white; /* Cor dos links */
-  padding: 14px 20px;
-  text-decoration: none; /* Remove sublinhado */
-  text-align: center;
-  flex-grow: 1;
-}
-.navbar a:hover {
-  background-color: transparent; /* Cor ao passar o mouse */
-  color: rgb(255, 255, 255);
-  border-bottom: 3px solid #000;
-}
-.logo {
-  width: 50px;
-  height: auto;
-}
-.navbar a .logo {
+.navbar.shrink {
+  padding: 8px 0; 
   
 }
+
+.container-navbar {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: 92px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 70px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+#logo-objetivasipatbrasil {
+  display: flex;
+  align-items: center;
+  transform: translateX(-130px);
+  transition: all 0.3s ease;
+  width: 170px;
+}
+
+.navbar.shrink #logo-objetivasipatbrasil {
+  width: 120px;
+  transform: translateX(-170px); 
+}
+
+
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  flex-grow: 0;
+  margin: 0 5px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: transparent;
+  color: white;
+  border-bottom: 3px solid #2a7a34;
+  padding-bottom: 5px;
+}
+
+.navbar.shrink a {
+  padding: 10px 15px;
+  font-size: 90%;
+}
+
+#logos-redessociais {
+  position: absolute;
+  bottom: -20px;
+  right: -420px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+#logos-redessociais img {
+  width: 55px;
+  height: auto;
+}
+.navbar.shrink #logos-redessociais {
+  bottom: -5px;
+  transition: all 0.3s ease;
+}
+.navbar.shrink #logos-redessociais img {
+  width: 45px;
+}
+
+img[alt="LINHA IRREGULAR AMARELA"] {
+  position: relative;
+  margin-top: 140px;
+}
+.top-background {
+  background-color: #ffc545; 
+  height: 300px; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.section-satisfacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -160px; /* estava 50px — agora mais perto do topo */
+  position: relative;
+  gap: 60px;
+  padding: 20px 20px 0 20px; /* tiramos padding inferior */
+  flex-wrap: wrap;
+}
+
+.mascote img {
+  width: 520px; /* ainda maior */
+  max-width: 100%;
+}
+
+.texto-elipse {
+  position: relative;
+  width: 720px; /* se a elipse for maior, pode ajustar aqui */
+}
+
+.texto-elipse .elipse {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.texto-elipse h1 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 62px; /* aumentado! */
+  font-weight: 800;
+  line-height: 1.4;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
