@@ -32,12 +32,43 @@ padding: 10px;
   width: 50px;
   height: auto;
 }
-.navbar a .logo {
-  
-}
 
 #logo-objetivasipatbrasil {
   width: 150px;
   height: auto;
   float: left;
 }
+
+#wave-amarela {
+  padding: 0px;
+  margin: 0px 0px;
+}
+
+#sipatzinho {
+  width: 400px;
+  height: auto;
+  padding: 0px;
+  margin-top: 0px;
+  margin-left: 60px;
+  float: left;
+}
+
+.container-elipse {
+  margin-top: 50px;
+  position: relative;
+	display: inline-block;
+}
+
+.container-elipse h1 {
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  top: 20%;
+}
+
+.container-elipse img {
+  width: 600px;
+  height: auto;
+}
+
+
