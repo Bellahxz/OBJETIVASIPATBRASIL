@@ -2,6 +2,40 @@
 html {
   scroll-behavior: smooth;
 }
+.clientes {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.clientes-titulo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FDBD2E;
+  margin-bottom: 30px;
+}
+
+.clientes-carousel {
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.clientes-slider {
+  display: flex;
+  gap: 60px;
+  animation: scroll 20s linear infinite;
+}
+
+.clientes-slider img {
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 /* ======== Estilo geral do corpo da página ======== */
 body {
@@ -355,7 +389,7 @@ img[alt="LINHA IRREGULAR AMARELA"] {
 
 /* ======== Seção "O que é SIPAT?" ======== */
 #texto-sipat {
-  position: relative; 
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -364,27 +398,27 @@ img[alt="LINHA IRREGULAR AMARELA"] {
 }
 
 #texto-sipat p {
-  font-size: 22px;
+  display: grid;
+  font-size: 80%;
   font-weight: 600;
   color: rgb(255, 255, 255);
-  width: 500px;
+  width: 50%;
   margin-top: 0%;
-  padding: 15px;
+  padding: 45px;
   position: relative;
-  margin-left: 240px;
+  margin-left: 5%;
   margin-right: auto;
-  display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  text-align: justify;
+  text-align: center;
   z-index: 2;
 }
 
 #texto-sipat img {
   position: absolute;
-  top: -50px;
-  left: 190px;
-  width: 730px;
+  top: -10%;
+  left: 11%;
+  width: 35%; 
 }
 
 /* Logo verde do SIPAT (imagem decorativa) */
@@ -393,14 +427,14 @@ img[alt="LINHA IRREGULAR AMARELA"] {
   justify-content: center;
   align-items: center;
   margin-top: 2%;
-  width: 100%;
+  max-width: 100%;
 }
 
 #logo-verde img {
   width: 100%;
-  max-width: 500px;
+  max-width: 30%;
   margin-top: -28%;
-  padding-left: 35%;
+  padding-left: 40%;
   height: auto;
 }
 
@@ -628,10 +662,12 @@ form {
   height: auto;
   border-radius: 50px;
   margin: 0 auto;
+  padding: 30px;
 }
 
-.formulario h1{
-  color: #FFC545;
+.formulario h2{
+  margin-bottom: 0px;
+  margin-top: 150px;
 }
 
 .contatos-formulario {
@@ -651,6 +687,8 @@ form {
   font-size: 32px;
   color: #000;
   font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .contatos-formulario-whatsapp img,  .contatos-formulario-email img {
@@ -676,15 +714,18 @@ form {
 }
 
 label {
-  font-size: 18px;
-  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
 }
 
 input {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
   margin: 2px 0px 6px 0px;
   width: 90%;
   width: 1000px;
-  height: 35px;
+  height: 50px;
   border: 0;
   border-radius: 50px;
 }
@@ -705,11 +746,14 @@ button {
   font-size: 20px;
   font-weight: bold;
   color: #fff;
-  width: 150px;
-  height: 40px;
+  width: 200px;
+  height: 50px;
   border-radius: 100px;
   border: 0;
-  margin: 30px 15px 30px 15px;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  gap: 50px;
 }
 
 #limpar {
@@ -719,4 +763,10 @@ button {
 #enviar {
   background-color: #43C153;
 }
+
+button:active {
+  color: #000;
+  background-color: #FFC545;
+}
+
 
