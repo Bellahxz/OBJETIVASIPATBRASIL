@@ -9,7 +9,7 @@ body {
   font-size: 19px;
   align-content: center;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   margin: 0;
   padding-top: 90px; /* Espaço para a navbar fixa */
 }
@@ -413,4 +413,159 @@ img[alt="LINHA IRREGULAR AMARELA"] {
     text-align: center;
     padding: 0 10px;
   }
+}
+/* ======== Seção de Palestras ======== */
+.titulo-palestras {
+  color: #FFC545;
+  font-size: 40px;
+  margin-top: 20px; /* menor distância do topo */
+  margin-bottom: 0px;
+  text-align: center;
+  background-color: white;
+  padding: 20px 0;
+}
+
+#palestras {
+  background-color: #d9d9d9;
+  padding: 20px 20px 60px;
+  color: black;
+}
+
+.descricao-palestras {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.descricao-palestras h3 {
+  color: #0052cc;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+
+/* ======== Carrossel ======== */
+.carousel-container {
+  max-width: 1250px; /* 3 cards */
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 60px;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.card {
+  flex: 0 0 320px;
+  background: white;
+  color: black;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.card h4 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0052cc;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ======== Responsividade ======== */
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 10px;
+  }
+
+  .carousel {
+    gap: 20px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 80%;
+    min-width: 80%;
+    max-width: 80%;
+    padding: 20px;
+  }
+
+  .descricao-palestras h3 {
+    font-size: 22px;
+  }
+
+  .descricao-palestras p {
+    font-size: 16px;
+  }
+}
+
+.carousel-btn {
+  font-size: 4rem;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+.carousel-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Posicionamento */
+.carousel-btn.left {
+  position: absolute;
+  left: -190px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.right {
+  position: absolute;
+  right: -190px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+/* Esconde as setas no mobile */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .carousel {
+    gap: 20px;
+  }
+
+  .card {
+    flex: 0 0 80%;
+    min-width: 80%;
+    max-width: 80%;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+}
+.palestra-bloco {
+  background-color: #d9d9d9;
+  padding: 40px 20px 60px;
+  margin: 5px 0; /* espaço branco acima e abaixo */
+  border-radius: 20px; /* opcional, deixa mais suave */
 }
