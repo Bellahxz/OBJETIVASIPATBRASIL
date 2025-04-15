@@ -5,25 +5,23 @@ html {
 .clientes {
   text-align: center;
   padding: 40px 20px;
-  background-color: #ffffff;
 }
 
 .clientes-titulo {
-  font-size: 24px;
+  font-size: 50px;
   font-weight: bold;
   color: #FDBD2E;
   margin-bottom: 30px;
 }
 
 .clientes-carousel {
-  overflow: hidden;
   padding: 20px 0;
 }
 
 .clientes-slider {
   display: flex;
   gap: 60px;
-  animation: scroll 20s linear infinite;
+  animation: scroll 15s linear infinite;
 }
 
 .clientes-slider img {
@@ -767,6 +765,29 @@ button {
 button:active {
   color: #000;
   background-color: #FFC545;
+}
+
+.clientes {
+  display: flex;
+  padding: 0px;
+}
+
+.cliente {
+  margin-right: 80px;
+  margin-left: 80px;
+}
+
+.clientes-slider {
+  display: flex;
+  padding: 20px;
+  margin-right: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.clientes-slider img {
+  width: 400px;
+  height: auto;
 }
 
 
