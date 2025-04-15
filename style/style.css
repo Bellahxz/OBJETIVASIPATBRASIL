@@ -639,7 +639,7 @@ img[alt="LINHA IRREGULAR AMARELA"] {
 /* Posicionamento */
 .carousel-btn.left {
   position: absolute;
-  left: -120px;
+  right: 100%;
   top: 30%;
   align-items: center;
   transform: translateY(-50%);
@@ -648,11 +648,16 @@ img[alt="LINHA IRREGULAR AMARELA"] {
 
 .carousel-btn.right {
   position: absolute;
-  right: -10px;
+  left: 100%;
   top: 30%;
   align-items: center;
   transform: translateY(-50%);
   transform: translatex(60%);
+}
+.carousel-btn:active {
+  color: black;
+  background: none;
+  outline: none;
 }
 
 
@@ -684,7 +689,6 @@ img[alt="LINHA IRREGULAR AMARELA"] {
   margin: 5px 0; /* espaço branco acima e abaixo */
   border-radius: 20px; /* opcional, deixa mais suave */
 }
-
 form {
   font-family: "Poppins", sans-serif;
   text-align: center;
@@ -800,99 +804,3 @@ button:active {
   color: #000;
   background-color: #FFC545;
 }
-
-.clientes {
-  display: flex;
-  padding: 0px;
-}
-
-.cliente {
-  margin-right: 80px;
-  margin-left: 80px;
-}
-
-.clientes-slider {
-  display: flex;
-  padding: 20px;
-  margin-right: 50px;
-  justify-content: center;
-  align-items: center;
-}
-
-/* EDIÇÃO DE TAMANHO IMAGENS "NOSSO CLIENTES" */
-
-#dr.oetker {
-  width: 250px;
-  height: auto;
-}
-
-#atacadao {
-  width: 250px;
-  height: auto;
-}
-
-#wdf-agro {
-  width: 250px;
-  height: auto;
-}
-
-#mastiflex {
-  width: 250px;
-  height: auto;
-}
-
-#truckvan {
-  width: 250px;
-  height: auto;
-}
-
-#jbs {
-  width: 250px;
-  height: auto;
-}
-
-#unimed {
-  width: 250px;
-  height: auto;
-}
-
-#sakura {
-  width: 250px;
-  height: auto;
-}
-
-#dpaschoal {
-  width: 250px;
-  height: auto;
-}
-
-#maggion {
-  width: 250px;
-  height: auto;
-}
-
-#magic-toys {
-  width: 250px;
-  height: auto;
-}
-
-#global-pack {
-  width: 250px;
-  height: auto;
-}
-
-#cebi {
-  width: 250px;
-  height: auto;
-}
-
-#wheaton {
-  width: 250px;
-  height: auto;
-}
-
-#nortene {
-  width: 250px;
-  height: auto;
-}
-
