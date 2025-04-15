@@ -785,9 +785,80 @@ button:active {
   align-items: center;
 }
 
-.clientes-slider img {
-  width: 400px;
+/* EDIÇÃO DE TAMANHO IMAGENS "NOSSO CLIENTES" */
+
+#dr.oetker {
+  width: 250px;
   height: auto;
 }
 
+#atacadao {
+  width: 250px;
+  height: auto;
+}
+
+#wdf-agro {
+  width: 250px;
+  height: auto;
+}
+
+#mastiflex {
+  width: 250px;
+  height: auto;
+}
+
+#truckvan {
+  width: 250px;
+  height: auto;
+}
+
+#jbs {
+  width: 250px;
+  height: auto;
+}
+
+#unimed {
+  width: 250px;
+  height: auto;
+}
+
+#sakura {
+  width: 250px;
+  height: auto;
+}
+
+#dpaschoal {
+  width: 250px;
+  height: auto;
+}
+
+#maggion {
+  width: 250px;
+  height: auto;
+}
+
+#magic-toys {
+  width: 250px;
+  height: auto;
+}
+
+#global-pack {
+  width: 250px;
+  height: auto;
+}
+
+#cebi {
+  width: 250px;
+  height: auto;
+}
+
+#wheaton {
+  width: 250px;
+  height: auto;
+}
+
+#nortene {
+  width: 250px;
+  height: auto;
+}
 
