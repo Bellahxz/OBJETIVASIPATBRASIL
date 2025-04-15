@@ -5,35 +5,69 @@ html {
 .clientes {
   text-align: center;
   padding: 40px 20px;
+  background-color: #d9d9d9;
 }
 
 .clientes-titulo {
   font-size: 50px;
   font-weight: bold;
-  color: #FDBD2E;
-  margin-bottom: 30px;
+  color: #ffc545; 
+  margin-bottom: 2%;
 }
 
 .clientes-carousel {
+  overflow: hidden;
   padding: 20px 0;
+  width: 100%;
 }
 
 .clientes-slider {
   display: flex;
   gap: 60px;
-  animation: scroll 15s linear infinite;
+  animation: scroll 40s linear infinite;
+  width: max-content;
 }
 
 .clientes-slider img {
-  height: 80px;
+  max-height: 200px;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+  .clientes-titulo {
+    font-size: 32px;
+  }
+
+  .clientes-slider {
+    gap: 40px;
+  }
+
+  .clientes-slider img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clientes-titulo {
+    font-size: 28px;
+  }
+
+  .clientes-slider {
+    gap: 30px;
+  }
+
+  .clientes-slider img {
+    height: 100px;
+  }
 }
 
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 
 /* ======== Estilo geral do corpo da página ======== */
 body {
