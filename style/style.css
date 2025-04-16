@@ -157,7 +157,11 @@ main {
     top: 32px !important;
   }
   .navbar-textos, .navbar-links {
-    left: 47% !important;
+    left: 42% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px !important; /* ou 10px, 8px, etc. */
   }
 
   #logos-redessociais {
@@ -362,11 +366,29 @@ main {
 /* ======== Fundo amarelo no topo da página ======== */
 .top-background {
   background-color: #ffc545; 
-  height: 300px; 
+  height: 200px; 
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+}
+#onda {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  z-index: 0; /* ou ajuste dependendo da navbar */
+}
+@media(max-width: 1040px) {
+  .top-background {
+    top: 30px;
+  }
+}
+@media(max-width: 800px) {
+  .top-background {
+    top: 40px;
+  }
 }
 
 /* ======== Seção de destaque (mascote + texto na elipse) ======== */
@@ -898,14 +920,55 @@ button span {
   background-color: #E04E4E; /* vermelho pro limpar */
 }
 
-footer {
-  display: relative;
-  color: #fff ;
-  align-items: center;
-  justify-content: center;
+.onda-svg-footer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -1px;
 }
 
-footer img {
+.onda-svg-footer svg {
+  display: block;
   width: 100%;
-  height: auto;
+  height: 200px; /* você pode ajustar */
+}
+
+footer {
+  position: relative;
+  background-color: #ffc545;
+  padding: 70px 20px 80px;
+
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+footer h3 {
+  font-size: 28px;
+  font-weight: bold;
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  footer h3 {
+    font-size: 18px;
+  }
+  .onda-svg-footer svg {
+    height: 100px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  footer h3 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1040px) {
+  .onda-svg-footer svg {
+    height: 160px;
+  }
 }
