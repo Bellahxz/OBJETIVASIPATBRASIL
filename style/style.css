@@ -148,6 +148,22 @@ main {
   .navbar.shrink {
     padding: 4px 0; 
   }
+  #logo-objetivasipatbrasil {
+    width: 45% !important;
+    left: -5px !important;
+  }
+  .navbar.shrink #logo-objetivasipatbrasil {
+    width: 35% !important;
+    top: 32px !important;
+  }
+  .navbar-textos, .navbar-links {
+    left: 47% !important;
+  }
+
+  #logos-redessociais {
+    left: 47% !important; 
+    transform: translateX(-50%);
+  }
 }
 
 /* ======== Container centralizado da navbar ======== */
@@ -168,7 +184,7 @@ main {
   top: 55px;
   left: clamp(-10px, 0vw, 60px);
   transform: translateY(-50%);
-  width: 170px;
+  width: clamp(90px, 12vw, 170px);
   transition: all 0.3s ease;
   z-index: 1000;
 }
@@ -199,44 +215,66 @@ main {
   white-space: nowrap
 }
 @media (max-width: 1024px) {
-  .navbar-links {
-    flex-wrap: wrap; /* permite quebra de linha */
+  .navbar-textos, .navbar-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90vw; /* Agora respeita o tamanho da tela */
+    width: 100%;
+    display: flex;
     justify-content: center;
+    gap: 8px;
+    padding: 0 80px; /* um respiro nas laterais */
+    box-sizing: border-box;
   }
-
+  .navbar-links {
+    max-width: 95vw;
+  }
   .navbar a {
-    max-width: 600px; 
+    font-size: clamp(12px, 2vw, 20px) !important;
+    max-width: 115px !important;
     text-align: center;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+    text-wrap: balance;
   }
+  .navbar a[href="#Sipat"] {
+    max-width: 160px !important;
+  }
+  
+  #logo-objetivasipatbrasil {
+    position: absolute;
+    left: clamp(0px, 0,5vw, -10px); 
+    top: 55px;
+    transform: translateY(-50%);
+    width: 170px;
+    z-index: 10;
+  }
+  
+  .navbar.shrink #logo-objetivasipatbrasil {
+    width: 35%;
+    top: 40px
+  }
+  
   #logos-redessociais {
     position: absolute;
-    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px; /* espaçamento entre os ícones */
-  }
-
-
-  #logo-objetivasipatbrasil {
-    top: 55px;
-  }
-  .navbar.shrink #logo-objetivasipatbrasil {
-    top: 40px; 
+    gap: 8px; 
   }
 
 
   #logos-redessociais img {
-    width: 50px;
+    width: clamp(25px, 6vw, 50px) !important;
   }
   .navbar.shrink #logos-redessociais {
-    bottom: -5px; /* igual ao normal pra manter posição */
-    left: 50%;
-    transform: translateX(-50%);
+    top: 87% !important;
   }
-
   .navbar.shrink #logos-redessociais img {
-    width: 35px !important;
+    width: clamp(15px, 4vw, 30px) !important;
   }
 }
 .navbar a:hover {
