@@ -586,7 +586,6 @@ img[alt="LINHA IRREGULAR AMARELA"] {
   margin-bottom: 10px;
 }
 
-
 /* ======== Carrossel ======== */
 .carousel-container {
   max-width: 1250px; /* 3 cards */
@@ -814,11 +813,22 @@ input {
    padding-left: 10px;
    box-sizing: border-box;
 }
-input #mensagem {
 
-}
-input focus #mensagem {
-  
+textarea {
+  text-align: start;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  margin-top: 6px;
+  margin-bottom: 100px;
+  resize: none;
+  overflow: hidden;
+  width:1000px;
+  height:300px;
+  border: 0;
+  margin-left: -235px;
+  border-radius: 50px;
+  padding: 10px 10px 10px 20px; /* Aumentei o padding-left para mover o texto para a direita */
+  box-sizing: border-box;
 }
 
 
