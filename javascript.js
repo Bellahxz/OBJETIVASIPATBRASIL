@@ -8,30 +8,23 @@ window.addEventListener("scroll", function () {
   }
 });
 
-
-// EFEITO CARROSSEL INFINITO
-
-function initInfiniteCarousel(carouselSelector, btnLeftSelector, btnRightSelector) {
-  const carousel = document.querySelector(carouselSelector);
-  const btnLeft = document.querySelector(btnLeftSelector);
-  const btnRight = document.querySelector(btnRightSelector);
-
+function initInfiniteCarousel(carousel, btnLeft, btnRight) {
   const originalCards = [...carousel.querySelectorAll('.card')];
-  const cardWidth = originalCards[0].offsetWidth + 60;
+  const gap = parseInt(getComputedStyle(carousel).gap) || 20;
+  const cardWidth = originalCards[0].offsetWidth + gap;
   const totalOriginal = originalCards.length;
 
-  const totalCopies = 21; 
+  const totalCopies = 21;
   const middleIndex = Math.floor(totalOriginal * totalCopies / 2);
 
-  carousel.innerHTML = '';
+  const originalContent = carousel.innerHTML; // salva o conteúdo original
+  carousel.innerHTML = ''; // limpa
 
-  const allCards = [];
   for (let i = 0; i < totalCopies; i++) {
     originalCards.forEach(card => {
       const clone = card.cloneNode(true);
       clone.classList.add('clone');
       carousel.appendChild(clone);
-      allCards.push(clone);
     });
   }
 
@@ -46,8 +39,8 @@ function initInfiniteCarousel(carouselSelector, btnLeftSelector, btnRightSelecto
   }
 
   function recentralizeIfNeeded() {
-    const minSafe = totalOriginal * 4;
-    const maxSafe = totalOriginal * (totalCopies - 4);
+    const minSafe = totalOriginal * 3;
+    const maxSafe = totalOriginal * (totalCopies - 3);
 
     if (currentIndex < minSafe || currentIndex > maxSafe) {
       currentIndex = middleIndex;
@@ -55,27 +48,64 @@ function initInfiniteCarousel(carouselSelector, btnLeftSelector, btnRightSelecto
     }
   }
 
-  let isScrolling = false;
-
-  function scrollCarousel(direction) {
-    if (isScrolling) return;
-    isScrolling = true;
-
-    currentIndex += direction;
+  btnLeft.addEventListener('click', () => {
+    currentIndex--;
     scrollToIndex(currentIndex);
+    recentralizeIfNeeded();
+  });
 
-    setTimeout(() => {
-      recentralizeIfNeeded();
-      isScrolling = false;
-    }, 400); // mesmo tempo da animação
-  }
-
-  btnLeft.addEventListener("click", () => scrollCarousel(-1));
-  btnRight.addEventListener("click", () => scrollCarousel(1));
+  btnRight.addEventListener('click', () => {
+    currentIndex++;
+    scrollToIndex(currentIndex);
+    recentralizeIfNeeded();
+  });
 }
 
 window.addEventListener('load', () => {
-  initInfiniteCarousel(".carousel", ".carousel-btn.left", ".carousel-btn.right");
-  initInfiniteCarousel(".carousel-saude", "#palestras-saude .carousel-btn.left", "#palestras-saude .carousel-btn.right");
-  initInfiniteCarousel(".carousel-comportamento", "#palestras-comportamento .carousel-btn.left", "#palestras-comportamento .carousel-btn.right");
+  const carousels = document.querySelectorAll('.carousel-container');
+
+  // Segurança
+  initInfiniteCarousel(
+    carousels[0].querySelector('.carousel'),
+    carousels[0].querySelector('.carousel-btn.left'),
+    carousels[0].querySelector('.carousel-btn.right')
+  );
+
+  // Saúde
+  initInfiniteCarousel(
+    carousels[1].querySelector('.carousel'),
+    carousels[1].querySelector('.carousel-btn.left'),
+    carousels[1].querySelector('.carousel-btn.right')
+  );
+
+  // Comportamento
+  initInfiniteCarousel(
+    carousels[2].querySelector('.carousel'),
+    carousels[2].querySelector('.carousel-btn.left'),
+    carousels[2].querySelector('.carousel-btn.right')
+  );
 });
+
+
+// efeito do rodape
+window.addEventListener('DOMContentLoaded', () => {
+  const footer = document.querySelector('footer');
+  const onda = document.querySelector('.onda-svg-footer');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.classList.add('aparecer');
+        if (onda) onda.classList.add('aparecer');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05
+  });
+
+  if (footer) {
+    observer.observe(footer);
+  }
+});
+
