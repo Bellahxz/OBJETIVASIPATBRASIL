@@ -1,6 +1,8 @@
-/* ======== Comportamento de rolagem suave ======== */
+/* rolagem suave */
 html {
   scroll-behavior: smooth;
+
+  overflow-x: hidden; /* evita scroll horizontal se passar do limite */
 }
 .clientes {
   text-align: center;
@@ -127,6 +129,15 @@ main {
   padding: 50px 0;
   transition: all 0.3s ease;
 }
+@media (min-width: 768px) {
+  .container-navbar {
+    margin-left: clamp(180px, 14vw, 250px); /* deixa espaço onde a logo fica */
+  }
+
+  .navbar.shrink .container-navbar {
+    margin-left: clamp(140px, 10vw, 200px); /* reduzido na versão shrink */
+  }
+}
 
 
 /* ======== Navbar encolhida ======== */
@@ -141,11 +152,9 @@ main {
 
 /* ======== Container centralizado da navbar ======== */
 .container-navbar {
-  font-weight: bold;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
   width: 100%;
   max-width: 1200px;
   min-height: 70px;
@@ -156,67 +165,160 @@ main {
 /* ======== Logo fixa na esquerda da navbar ======== */
 #logo-objetivasipatbrasil {
   position: fixed;
-  top: 50px; /* igual ao padding-top da navbar */
-  left: clamp(10px, 0vw, 60px);
+  top: 55px;
+  left: clamp(-10px, 0vw, 60px);
   transform: translateY(-50%);
   width: 170px;
   transition: all 0.3s ease;
   z-index: 1000;
 }
-
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: clamp(10px, 2vw, 30px);
+  text-align: center;
+}
 
 .navbar.shrink #logo-objetivasipatbrasil {
-  top: 32px; 
+  top: 40px; 
   width: 120px;
 }
 
 /* ======== Links da navbar ======== */
 .navbar a {
   color: white;
-  padding: 14px 20px;
   text-decoration: none;
-  text-align: center;
-  flex-grow: 0;
-  margin: 0 5px;
-  position: relative; 
+  font-weight: 600;
+  left: 50%;
+  transform: translateX(-50%);
   transition: all 0.3s ease;
+  font-size: clamp(22px, 1.2vw, 22px); /* texto responsivo */
+  padding: 8px clamp(8px, 1vw, 16px);
+  white-space: nowrap
 }
+@media (max-width: 1024px) {
+  .navbar-links {
+    flex-wrap: wrap; /* permite quebra de linha */
+    justify-content: center;
+  }
 
+  .navbar a {
+    max-width: 600px; 
+    text-align: center;
+  }
+  #logos-redessociais {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px; /* espaçamento entre os ícones */
+  }
+
+
+  #logo-objetivasipatbrasil {
+    top: 55px;
+  }
+  .navbar.shrink #logo-objetivasipatbrasil {
+    top: 40px; 
+  }
+
+
+  #logos-redessociais img {
+    width: 50px;
+  }
+  .navbar.shrink #logos-redessociais {
+    bottom: -5px; /* igual ao normal pra manter posição */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar.shrink #logos-redessociais img {
+    width: 35px !important;
+  }
+}
 .navbar a:hover {
-  background-color: transparent;
-  color: white;
   border-bottom: 3px solid #2a7a34;
   padding-bottom: 5px;
 }
+.navbar a#vamo:hover {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+.navbar a#porra:hover {
+  border-bottom: none;
+  padding-bottom: 0;
+}
 
-.navbar.shrink a {
-  padding: 10px 15px;
-  font-size: 90%;
+
+.navbar.shrink .navbar-links {
+  font-size: clamp(11px, 1vw, 16px);
 }
 
 /* ======== Ícones das redes sociais ======== */
 #logos-redessociais {
-  position: absolute;
-  bottom: -20px;
-  right: -420px;
   display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
+  gap: 15px;
+  position: absolute; 
+  right: -40px; 
+  top: 80%; 
+  transform: translateY(-50%);
 }
 
 #logos-redessociais img {
-  width: 55px;
+  width: 60px;
   height: auto;
+  transition: all 0.3s ease;
 }
-
-.navbar.shrink #logos-redessociais {
-  bottom: -5px;
+@media (max-width: 1820px) {
+  #logos-redessociais img {
+    width: 50px;
+  }
 }
 
 .navbar.shrink #logos-redessociais img {
-  width: 45px;
+  width: 40px;
 }
 
+@media (max-width: 1440px) {
+  #logos-redessociais {
+    top: 85%;
+    margin: 0; 
+    right: -30px;
+    padding: 0;
+    gap: 0px;
+  }
+  #logos-redessociais img {
+    width: 50px;
+  }
+  .navbar.shrink #logos-redessociais {
+    gap: 0px;
+    top: 81%;
+  }
+  .navbar.shrink #logos-redessociais img {
+    width: 35px;
+  }
+
+  .navbar-textos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* controla o espaço entre os links */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: clamp(300px, 20vw, 250px);
+    max-width: calc(100% - 200px); /* garante que não encoste na logo */
+  }
+  .navbar a{
+    gap: 2px;
+    font-size: clamp(14px, 1.5vw, 21px); /* 21px no máximo, 14px no mínimo */
+    padding: 5px 8px;
+  }
+
+}
 
 
 /* ======== Linha amarela decorativa abaixo da navbar ======== */
