@@ -822,10 +822,10 @@ textarea {
   margin-bottom: 100px;
   resize: none;
   overflow: hidden;
-  width:1000px;
+  width:1030px;
   height:300px;
   border: 0;
-  margin-left: -235px;
+  margin-left: -250px;
   border-radius: 50px;
   padding: 10px 10px 10px 20px; /* Aumentei o padding-left para mover o texto para a direita */
   box-sizing: border-box;
