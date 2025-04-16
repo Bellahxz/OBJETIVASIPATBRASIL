@@ -26,7 +26,7 @@ html {
 .clientes-slider {
   display: flex;
   gap: 60px;
-  animation: scroll 45s linear infinite;
+  animation: scroll 60s linear infinite;
   width: max-content;
 }
 
@@ -461,43 +461,44 @@ img[alt="LINHA IRREGULAR AMARELA"] {
   gap: 40px; 
 }
 
+#texto-sipat img {
+  position: absolute;
+  top: -15%;
+  left: 11%;
+  width: 35%;
+}
+
 #texto-sipat p {
-  display: grid;
-  font-size: 80%;
+  display: flex;
+  font-size: 100%;
   font-weight: 600;
   color: rgb(255, 255, 255);
-  width: 50%;
-  margin-top: 0%;
-  padding: 45px;
+  width: 80%;
+  margin-top: -3%;
+  padding: 70px;
+  padding-top: 150px;
   position: relative;
   margin-left: 5%;
   margin-right: auto;
   align-items: left;
   justify-content: center;
-  text-align: center;
+  text-align: auto;
   z-index: 2;
 }
 
-#texto-sipat img {
-  position: absolute;
-  top: -10%;
-  left: 11%;
-  width: 35%; 
-}
-
-/* Logo verde do SIPAT (imagem decorativa) */
+/* Logo verde do CIPA (imagem decorativa) */
 #logo-verde {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 0%;
   max-width: 100%;
 }
 
 #logo-verde img {
-  width: 100%;
+  width: 50%;
   max-width: 30%;
-  margin-top: -28%;
+  margin-top: -15%;
   padding-left: 40%;
   height: auto;
 }
@@ -774,29 +775,52 @@ form {
 
 .campoformulario {
   align-items: center;
-  justify-content: center;
-  text-align: center;
   display: flex;
   flex-direction: column; /* Empilha os campos */
   flex: 1;
+  margin-left: 0% !important;
+  position: relative;
+  top: 10px;
 }
+.campoformulario label {
+  top: 5px;
+  right: 80px;
+}
+#luisviado
+{
+  right: 105px !important;
+}
+
 
 label {
   font-size: 25px;
   font-weight: 500;
+  display: flex;
+  margin-left: 8%;
+  position: relative;
+  top: 33px;
 }
 
 input {
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 22px;
-  margin: 2px 0px 6px 0px;
-  width: 90%;
-  width: 1000px;
-  height: 50px;
-  border: 0;
-  border-radius: 50px;
+   text-align: start;
+   font-family: "Poppins", sans-serif;
+   font-size: 22px;
+   margin: 2px 0px 6px 0px;
+   width: 100%;
+   max-width: 1000px;
+   height: 50px;
+   border: 0;
+   border-radius: 50px;
+   padding-left: 10px;
+   box-sizing: border-box;
 }
+input #mensagem {
+
+}
+input focus #mensagem {
+  
+}
+
 
 #numerodepalestras , #datadapalestra {
   width: 400px;
