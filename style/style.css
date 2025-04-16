@@ -24,12 +24,12 @@ html {
 .clientes-slider {
   display: flex;
   gap: 60px;
-  animation: scroll 40s linear infinite;
+  animation: scroll 45s linear infinite;
   width: max-content;
 }
 
 .clientes-slider img {
-  max-height: 200px;
+  max-height: 150px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -65,8 +65,9 @@ html {
 
 @keyframes scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-50%); } 
 }
+
 
 
 /* ======== Estilo geral do corpo da página ======== */
@@ -109,22 +110,28 @@ ul li {
 }
 
 /* ======== Navbar principal ======== */
+main {
+  padding-top: 100px; /* ou ajuste de acordo com a altura da navbar */
+}
+
+
 .navbar {
-  display: flex;
-  justify-content: center;
-  background-color: #43C153;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
-  transition: all 0.3s ease; 
-  padding: 20px 0;
+  background-color: #43C153;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  transition: all 0.3s ease;
 }
 
-/* ======== Navbar encolhida ao rolar a página ======== */
+
+/* ======== Navbar encolhida ======== */
 .navbar.shrink {
-  padding: 8px 0; 
+  padding: 20px 0; 
 }
 @media (max-width: 768px) {
   .navbar.shrink {
@@ -132,14 +139,13 @@ ul li {
   }
 }
 
-/* ======== Container da navbar, centraliza o conteúdo ======== */
+/* ======== Container centralizado da navbar ======== */
 .container-navbar {
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  right: 92px;
   width: 100%;
   max-width: 1200px;
   min-height: 70px;
@@ -147,18 +153,21 @@ ul li {
   transition: all 0.3s ease;
 }
 
-/* ======== Logo da navbar (padrão e ao encolher) ======== */
+/* ======== Logo fixa na esquerda da navbar ======== */
 #logo-objetivasipatbrasil {
-  display: flex;
-  align-items: center;
-  transform: translateX(-130px);
-  transition: all 0.3s ease;
+  position: fixed;
+  top: 50px; /* igual ao padding-top da navbar */
+  left: clamp(10px, 0vw, 60px);
+  transform: translateY(-50%);
   width: 170px;
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
+
 .navbar.shrink #logo-objetivasipatbrasil {
+  top: 32px; 
   width: 120px;
-  transform: translateX(-170px); 
 }
 
 /* ======== Links da navbar ======== */
@@ -185,7 +194,7 @@ ul li {
   font-size: 90%;
 }
 
-/* ======== Ícones das redes sociais (posição padrão e encolhida) ======== */
+/* ======== Ícones das redes sociais ======== */
 #logos-redessociais {
   position: absolute;
   bottom: -20px;
@@ -202,7 +211,6 @@ ul li {
 
 .navbar.shrink #logos-redessociais {
   bottom: -5px;
-  transition: all 0.3s ease;
 }
 
 .navbar.shrink #logos-redessociais img {
@@ -210,123 +218,7 @@ ul li {
 }
 
 
-/* ======== Estilos responsivos para telas menores ======== */
-@media (max-width: 768px) {
-  body {
-    padding-top: 60px;
-    font-size: 16px;
-  }
 
-  h2 {
-    font-size: 32px;
-  }
-
-  #texto-quem-somos p {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
-    height: auto;
-    text-align: justify;
-    font-size: 16px;
-  }
-
-  .navbar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 10px;
-  }
-
-  .container-navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    right: 0;
-    padding: 0;
-  }
-
-  #logo-objetivasipatbrasil {
-    transform: translateX(0);
-    width: 90px;
-    margin: 0;
-  }
-
-  .navbar a {
-    font-size: 12px;
-    padding: 6px 8px;
-    margin: 0 2px;
-  }
-
-  #logos-redessociais {
-    position: static;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    margin-top: 0;
-  }
-
-  #logos-redessociais img {
-    width: 30px;
-  }
-
-  .section-satisfacao {
-    flex-direction: column;
-    margin-top: 0;
-    gap: 30px;
-  }
-
-  .mascote img {
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .texto-elipse {
-    width: 100%;
-  }
-
-  .texto-elipse h1 {
-    font-size: 28px;
-    padding: 10px;
-  }
-
-  #vaitomando {
-    margin-left: 0;
-  }
-
-  .fundo-azul {
-    width: 90%;
-    height: auto;
-    padding: 20px;
-  }
-
-  .equipe {
-    position: static;
-    width: 100%;
-  }
-
-  #texto-sipat p {
-    width: 90%;
-    margin: 0 auto;
-    font-size: 16px;
-    margin-top: 20px;
-  }
-
-  #texto-sipat img,
-  #logo-verde img {
-    display: none;
-  }
-
-  #rodape h3 {
-    font-size: 18px;
-    top: 250px;
-    white-space: normal;
-    text-align: center;
-    padding: 0 10px;
-  }
-}
 /* ======== Linha amarela decorativa abaixo da navbar ======== */
 img[alt="LINHA IRREGULAR AMARELA"] {
   position: relative;
