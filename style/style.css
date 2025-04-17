@@ -193,6 +193,7 @@ main {
   transition: all 0.3s ease;
   z-index: 1000;
 }
+
 .navbar-links {
   display: flex;
   justify-content: center;
@@ -294,7 +295,6 @@ main {
   border-bottom: none;
   padding-bottom: 0;
 }
-
 
 .navbar.shrink .navbar-links {
   font-size: clamp(11px, 1vw, 16px);
@@ -400,16 +400,16 @@ main {
   margin-top: -160px; 
   position: relative;
   gap: 60px;
-  padding: 20px 20px 0 20px;
+  padding: 435px 20px 0 20px;
   flex-wrap: wrap;
 }
 
 /* Mascote (imagem do SIPATzinho FUDIDO DESGRAÇADO ESPERO QUE O SIPATZINHO 
 QUEIME NO INFERNO PARA TODA ETERNIDADE) */
 .mascote img {
-  width: 500px; 
+  width: 460px; 
   max-width: 100%;
-  margin-top: -80px;
+  margin-top: -20px;
 }
 
 @media (max-width: 700px) {
@@ -556,19 +556,6 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
   margin-top: -15%;
   padding-left: 40%;
   height: auto;
-}
-
-/* ======== Rodapé da página ======== */
-#rodape {
-  position: relative;
-  width: 100%;
-  margin: 0;
-}
-
-#rodape img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* ======== Rodapé da página ======== */
@@ -1051,67 +1038,55 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
-.wave-invertida-wrapper {
-  transform: scaleY(-1); /* Inverte verticalmente toda a onda */
+html, body {
+  height: 100%; /* Melhora visualização */
+  margin: 0; /* Remove espaçamento padrão */
+  padding: 0;
 }
 
-section {
-  position: relative;
+.ocean { 
+  height: 20%; /* ou mais, para você enxergar melhor */
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #FFCB05; /* fundo amarelo SIPAT */
-}
-
-section .wave {
   position: absolute;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent; /* sem cor extra */
-  box-shadow: none;
-  transition: 0.5s;
 }
 
-section .wave span {
+.wave {
+  background: url(/Assets/image/wave_amarelo_sem_gradiente.svg) repeat-x;
   position: absolute;
-  width: 325vh;
-  height: 325vh;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -75%);
+  top: -335px;
+  margin-bottom: 200px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 11s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
 }
 
-section .wave span:nth-child(1) {
-  border-radius: 45%;
-  background: rgba(255, 255, 255, 1); /* branco sólido */
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.4); /* sombra suave branca */
-  animation: animate 5s linear infinite;
+.wave:nth-of-type(2) {
+  animation: wave 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 0.5;
+  top: -333px;
 }
 
-section .wave span:nth-child(2) {
-  border-radius: 40%;
-  background: rgba(255, 255, 255, 0.4); /* branco translúcido */
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  animation: animate 10s linear infinite;
-}
-
-section .wave span:nth-child(3) {
-  border-radius: 42.5%;
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
-  animation: animate 15s linear infinite;
-}
-
-@keyframes animate {
+@keyframes wave {
   0% {
-    transform: translate(-50%, -75%) rotate(0deg);
+    margin-left: 0;
   }
   100% {
-    transform: translate(-50%, -75%) rotate(360deg);
+    margin-left: -1600px;
   }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+#toma {
+  transform: scaleY(-1); /* Inverte verticalmente toda a onda */
 }
