@@ -10,12 +10,6 @@ html {
   background-color: #d9d9d9;
 }
 
-.clientes-titulo {
-  font-size: 50px;
-  font-weight: bold;
-  color: #ffc545; 
-  margin-bottom: 2%;
-}
 
 .clientes-carousel {
   overflow: hidden;
@@ -38,9 +32,7 @@ html {
 
 /* Responsivo para telas pequenas */
 @media (max-width: 768px) {
-  .clientes-titulo {
-    font-size: 32px;
-  }
+
 
   .clientes-slider {
     gap: 40px;
@@ -52,9 +44,6 @@ html {
 }
 
 @media (max-width: 480px) {
-  .clientes-titulo {
-    font-size: 28px;
-  }
 
   .clientes-slider {
     gap: 30px;
@@ -129,15 +118,6 @@ main {
   padding: 50px 0;
   transition: all 0.3s ease;
 }
-@media (min-width: 768px) {
-  .container-navbar {
-    margin-left: clamp(180px, 14vw, 250px); /* deixa espaço onde a logo fica */
-  }
-
-  .navbar.shrink .container-navbar {
-    margin-left: clamp(140px, 10vw, 200px); /* reduzido na versão shrink */
-  }
-}
 
 
 /* ======== Navbar encolhida ======== */
@@ -148,13 +128,10 @@ main {
   .navbar.shrink {
     padding: 4px 0; 
   }
-  #logo-objetivasipatbrasil {
-    width: 45% !important;
-    left: -5px !important;
-  }
-  .navbar.shrink #logo-objetivasipatbrasil {
-    width: 35% !important;
-    top: 32px !important;
+
+  .navbar #logo-objetivasipatbrasil {
+    width: 85px !important;
+    top: 30px !important;
     left: -0px !important;
   }
   .navbar-textos, .navbar-links {
@@ -220,69 +197,7 @@ main {
   padding: 8px clamp(8px, 1vw, 16px);
   white-space: nowrap
 }
-@media (max-width: 1024px) {
-  .navbar-textos, .navbar-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 90vw; /* Agora respeita o tamanho da tela */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 0 80px; /* um respiro nas laterais */
-    box-sizing: border-box;
-  }
-  .navbar-links {
-    max-width: 95vw;
-  }
-  .navbar a {
-    font-size: clamp(12px, 2vw, 20px) !important;
-    max-width: 115px !important;
-    text-align: center;
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: break-word;
-    line-height: 1.2;
-    text-wrap: balance;
-  }
-  .navbar a[href="#Sipat"] {
-    max-width: 160px !important;
-  }
-  
-  #logo-objetivasipatbrasil {
-    position: absolute;
-    left: clamp(0px, 0,5vw, -10px); 
-    top: 55px;
-    transform: translateY(-50%);
-    width: 170px;
-    z-index: 10;
-  }
-  
-  .navbar.shrink #logo-objetivasipatbrasil {
-    width: 35%;
-    top: 40px
-  }
-  
-  #logos-redessociais {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px; 
-  }
 
-
-  #logos-redessociais img {
-    width: clamp(25px, 6vw, 50px) !important;
-  }
-  .navbar.shrink #logos-redessociais {
-    top: 87% !important;
-  }
-  .navbar.shrink #logos-redessociais img {
-    width: clamp(15px, 4vw, 30px) !important;
-  }
-}
 .navbar a:hover {
   border-bottom: 3px solid #2a7a34;
   padding-bottom: 5px;
@@ -1089,4 +1004,117 @@ html, body {
 
 #toma {
   transform: scaleY(-1); /* Inverte verticalmente toda a onda */
+}
+
+.celulas {
+  position: fixed;
+  top: -50px !important;
+  right: 0;
+  height: 120%;
+  row-gap: -20px !important;
+  width: 200px !important;
+  z-index: 999;
+  background-color: rgba(67, 193, 84, 0.815);
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+  display: none !important;
+  flex-direction: column;
+  align-content: flex-start !important;
+  justify-content: flex-start !important;
+  backdrop-filter: blur(10px);
+  font-size: 40px !important;
+}
+
+#honra {
+  width: 3vw;
+
+}
+nav #lista-1 {
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  font-weight: 500;
+  font-size: large;
+}
+.show-sidebar {
+  display: flex !important;
+}
+
+@media(min-width: 970px) {
+.menu {
+  display: none;
+}
+}
+
+@media(max-width: 970px) {
+  .navbar-textos, #logos-redessociais{
+    display: none;
+  }
+  .navbar a {
+    margin-right: 1em;
+  }
+  .menu {
+    margin-right: auto !important;
+  }
+  .navbar a:hover {
+    border-bottom: none !important;
+  }
+  #honra {
+    margin-top: 3em;
+    width: 6vw !important;
+
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0px 0 !important; 
+  }
+}
+.show-sidebar {
+  display: flex !important;
+}
+@media (max-width: 970px) {
+  .menu img {
+    width: 40px !important;
+    height: auto;
+  }
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 1675px) {
+  .navbar.shrink #logos-redessociais {
+    gap: 6px !important;
+    right: -40px !important;
+    bottom: -13px;
+  }
+
+  .navbar.shrink #logos-redessociais img {
+    width: 35px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+@media (max-width: 1440px) {
+  .navbar.shrink #logos-redessociais {
+    gap: 6px !important;
+    right: -30px !important;
+    bottom: -13px;
+  }
+
+  .navbar.shrink #logos-redessociais img {
+    width: 35px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+@media (max-width: 1060px) {
+  .navbar-textos {
+    left: 48% !important;
+  }
 }

@@ -110,3 +110,15 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+  //celular menu
+
+  function showSidebar(event) {
+    event.preventDefault(); 
+    const celulas = document.querySelector(".celulas");
+    celulas.classList.add("show-sidebar");
+}
+function hideSidebar(event) {
+  event.preventDefault();
+  const celulas = document.querySelector(".celulas");
+  celulas.classList.remove("show-sidebar");
+}
