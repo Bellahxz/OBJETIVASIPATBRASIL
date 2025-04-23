@@ -122,3 +122,27 @@ function hideSidebar(event) {
   const celulas = document.querySelector(".celulas");
   celulas.classList.remove("show-sidebar");
 }
+
+
+const fodase = document.querySelectorAll('.fodase');
+
+fodase.forEach(item => {
+  const Leticia = item.querySelector('.resposta');
+  Leticia.addEventListener('click', () => {
+    fodase.forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains('active')) {
+        otherItem.classList.remove('active');
+      }
+    });
+
+    item.classList.toggle('active');
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".pergunta").forEach((item) => {
+      item.addEventListener("click", () => {
+          item.parentElement.classList.toggle("active");
+      });
+  });
+});
