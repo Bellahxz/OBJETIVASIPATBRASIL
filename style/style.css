@@ -377,71 +377,6 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
   }
 }
 
-/* ======== Seção "O que é SIPAT?" com flexbox ======== */
-#caralho {
-  .container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: space-evenly;
-    min-height: 500px;
-    gap: 2em;
-    border: 8px, solid, black;
-    flex-wrap: wrap;
-  
-  }
-#texto-sipat {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Alinha à esquerda */
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.bloco-img {
-  position: relative;
-  width: 37vw;
-  /* Opcional: você pode ajustar a posição na tela com margin */
-  margin-left: 2vw;
-  margin-top: 5vh;
-}
-
-.bloco-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.bloco-img p {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 85%;  
-  font-size: 1,53rem;
-  font-weight: 600;
-  color: white;
-  padding: 10px;
-}
-}
-/* Logo verde do CIPA (imagem decorativa) */
-#logo-verde {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0%;
-  max-width: 100%;
-}
-
-#logo-verde img {
-  width: 50%;
-  max-width: 30%;
-  margin-top: -15%;
-  padding-left: 40%;
-  height: auto;
-}
 
 /* ======== Rodapé da página ======== */
 #rodape {
@@ -1124,38 +1059,50 @@ h4 {
   font-size: 2.5em;
 }
 .chupingole {
-  gap: 10rem;
-  width: 60%;
-  max-width: 600px;
-  background: #d9d9d9;
-  border-radius: 30px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;  
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .pergunta {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between; /* separa o título da seta */
   align-items: center;
   padding: 1rem;
-  background: #d9d9d9;
+  background: #d9d9d9; 
+  border-radius: 30px;
   cursor: pointer;
   transition: background 0.3s ease;
+}
+.pergunta h3 {
+  font-size: 1.5rem;
+  margin: 0 auto; /* centraliza horizontalmente */
+  flex: 1;         /* ocupa o espaço disponível */
+  text-align: center;
 }
 .pergunta:hover {
   background: #0052cc;
 }
-.pergunta h3 {
-  font-size: 1.2rem;
-  margin: 0;
-}
 .pergunta span {
-  font-size: 1.5rem;
-  color: #2a7a34;
-  transition: transform 0.3s ease;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* impede encolhimento */
+}
+.pergunta span img {
+  width: 100%;
 }
 .resposta {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5 ease, padding 0.3s ease;
+  background: #d9d9d9;
+  border: #d9d9d9;
+  border-radius: 30px;
 }
 .resposta p {
   padding: 0 1rem 1rem;
@@ -1172,4 +1119,62 @@ h4 {
 .fodase.active .resposta {
   max-height: 500px; 
   padding: 0 1rem;
+}
+@media (max-width:1000px) {
+  .pergunta h3 {
+    font-size: 1rem;
+  }
+  .chupingole {
+    width: 75%;
+  }
+}
+@media (max-width:700px) {
+  .pergunta h3 {
+    font-size: 1rem;
+  }
+  .chupingole {
+    width: 75%;
+  }
+}
+
+#mamando-piru {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+.piru {
+  font-size: 1.2vw;
+  text-align: justify;
+  height: 25vw;
+  padding: 20px; 
+  width: 35vw;
+  color: white;
+  background: #43C153;
+  border-radius: 10% 30% 10% 30%;
+}
+@media(max-width: 900px) {
+  #SIPA img {
+    width: 250px !important;
+  }
+}
+.piru p {
+  margin-top: 2.5vw; /* ou use px, tipo 20px */
+  font-weight: 700;
+  width: 30vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+#SIPA {
+  margin-top: 1em;
+  margin-right: 10em;
+}
+@media (max-width: 1025px) {
+  .wave {
+    top: -350px !important;
+    height: 120px;
+  }
+
+  .wave:nth-of-type(2) {
+    height: 197px;
+  }
 }
