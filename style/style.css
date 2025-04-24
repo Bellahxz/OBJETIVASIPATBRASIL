@@ -1043,12 +1043,52 @@ nav #lista-1 {
   font-size: 1.6vw;
   font-weight: 600;
   text-align: justify;
-  max-width: 30vw; 
-  margin: 0 auto; 
-  padding: 20px; 
+  max-width: 30vw;
   width: 40vw;
-  margin-top: -1em;
+  margin: -1em auto 0 auto;
+  padding: 20px;
 }
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+
+  #texto-quem-somos {
+    font-size: 2.2vw;
+    max-width: 80vw;
+    width: 80vw;
+    margin-top: -80px;
+  }
+  #vaitomando img {
+    width: 55vw !important;
+  }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 686px) {
+  #texto-quem-somos {
+    font-size: 3vw;
+    max-width: 90vw;
+    width: 90vw;
+    padding: 15px;
+    margin-top: -60px;
+  }
+  .caralho {
+    flex-wrap: wrap;
+  }
+  
+}
+@media (max-width: 599px) {
+  #texto-quem-somos {
+    font-size: 3vw;
+    width: 90vw;
+    padding: 15px;
+  }
+  .caralho {
+    flex-wrap: wrap;
+  }
+}
+
+
 #vaitomando img {
   width: 42vw;
   height: auto;
