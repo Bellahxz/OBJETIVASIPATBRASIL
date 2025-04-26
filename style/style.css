@@ -2,7 +2,7 @@
 html {
   scroll-behavior: smooth;
 
-  overflow-x: hidden; /* evita scroll horizontal se passar do limite */
+  overflow-x: hidden;
 }
 .clientes {
   text-align: center;
@@ -668,7 +668,8 @@ form {
 
 .linhaformulario{
   display: flex;
-  gap: 40%;
+  text-wrap: nowrap;
+  gap: 10vw;
 }
 
 
@@ -691,37 +692,18 @@ input {
    box-sizing: border-box;
 }
 textarea {
-  text-align: start;
   font-family: "Poppins", sans-serif;
   font-size: 22px;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  resize: none;
-  overflow: hidden;
+  width: 100%;
+  height: 15rem;
+  padding: 10px 10px 10px 20px;
   border: 0;
   border-radius: 50px;
-  padding: 10px 10px 10px 20px;
-}
 
-.JACK,
-.linhaformulario,
+  box-sizing: border-box;
+}
 .campodetexto {
-  width: 100%;
-}
-
-.campodetexto {
-  display: flex;
-  flex-direction: column;
-}
-
-.campodetexto textarea {
-  width: 100%;
-}
-
-
-
-#numerodepalestras , #datadapalestra {
-  width: 100%;
+  margin-top: 2em;
 }
 
 
@@ -1027,7 +1009,7 @@ nav #lista-1 {
 #vaitomando {
   background-color: #0052cc;
   padding: 2vw;
-  border-radius: 30px 50px 30px 50px;
+  border-radius: 50px 50px 50px 50px;
   margin: 0 auto;
   flex-shrink: 1;
 } 
@@ -1138,6 +1120,7 @@ h4 {
   border-radius: 0 0 30px 30px;
 }
 .resposta p {
+  font-size: 20px;
   padding: 0 1rem 1rem;
   color: black;
   font-weight: 500;
@@ -1145,10 +1128,11 @@ h4 {
 
 .fodase.active .pergunta {
   border-radius: 30px 30px 0 0;
-  background: #ffc545;
+  background: #43C153;
+  color: white;
 }
 .fodase.active .pergunta:hover {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 
@@ -1178,15 +1162,18 @@ h4 {
 
 #mamando-piru {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      min-height: auto;
+      gap: 1em;
+      flex-wrap: nowrap;
 }
 .piru {
-  font-size: 1.2vw;
+  font-size: 1.44vw;
   text-align: justify;
-  height: 25vw;
+  height: 30vw;
   padding: 20px; 
-  width: 35vw;
+  width: 42vw;
   color: white;
   background: #43C153;
   border-radius: 10% 30% 10% 30%;
@@ -1199,13 +1186,13 @@ h4 {
 .piru p {
   margin-top: 2.5vw; /* ou use px, tipo 20px */
   font-weight: 700;
-  width: 30vw;
+  width: 36vw;
   margin-left: auto;
   margin-right: auto;
 }
 #SIPA {
   margin-top: 1em;
-  margin-right: 10em;
+  margin-right: 1em;
 }
 @media (max-width: 1025px) {
   .wave {
