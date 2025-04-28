@@ -3,15 +3,12 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-
   overflow-x: hidden;
-}
 .clientes {
   text-align: center;
   padding: 40px 20px;
   background-color: #d9d9d9;
 }
-
 
 .clientes-carousel {
   overflow: hidden;
@@ -758,6 +755,11 @@ label {
   display: flex;
   margin-top: 20px;
   margin-left: 0.5em;
+}
+
+input:focus, textarea:focus {
+  border: 3px solid #0052cc;
+  outline: 0;
 }
 
 input {
@@ -1595,4 +1597,5 @@ a {
   .sidebarToggleIcon {
     display: none !important;
   }
+}
 }
