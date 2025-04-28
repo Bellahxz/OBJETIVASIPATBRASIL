@@ -33,7 +33,6 @@
                     <a href="#topo" id="vamo"><img id="logo-objetivasipatbrasil"
                             src="Assets\image\OBJETIVA SIPAT LOGO.svg" alt="LOGO OBJETIVA SIPAT BRASIL"></a>
                 </div>
-                <li class="menu" onclick=showSidebar(event)><a href="#"><img style="width: 3vw" src="/Assets/image/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a></li>
             </ul>
 
                 <!-- Links de navegação -->
@@ -61,19 +60,23 @@
             </div>
 
 
-            <ul class="celulas" id="lista-1">
-                <li class="fechar" onclick="hideSidebar(event)"><a href=""><img style="width: 40px; margin-top: 2em; margin-bottom: 0.5em;" src="/Assets/image/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a></li>
-                </li>
-                <li><a href="#Quem-Somos">Quem Somos?</a></li>
-                <li>  <a href="#Sipat">O&nbsp;que&nbsp;é SIPAT?</a></li>
-                <li> <a href="#Nossas-Palestras">Nossas palestras</a></li>
-                <li>  <a href="#Nossos-Clientes">Nossos clientes</a></li>
-                <li>  <a href="#Entre-em-contato">Entre em contato</a></li>
-                <li class="celular"><a href=""><img id="honra"  src="/Assets/image/logoinstagram.svg" alt=""></a></li>
-                <li class="celular"><a href=""><img id="honra"  src="/Assets/image/logoyoutube.svg" alt=""></a></li>
-                <li class="celular"><a href=""><img id="honra"  src="/Assets/image/logolinkedin.svg" alt=""></a></li>
-        </ul>
-            
+            <input type="checkbox" class="toggleSidebarMenu" id="toggleSidebarMenu">
+            <label for="toggleSidebarMenu" class="sidebarToggleIcon">
+              <div class="bar diagonal part-1"></div>
+              <div class="bar horizontal"></div>
+              <div class="bar diagonal part-2"></div>
+            </label>
+            <div id="sidebarMenu">
+              <ul class="sidebarMenuContent">
+                          <li><a href="#Quem-Somos">Quem Somos?</a></li>
+                          <li>  <a href="#Sipat">O&nbsp;que&nbsp;é SIPAT?</a></li>
+                          <li> <a href="#Nossas-Palestras">Nossas palestras</a></li>
+                          <li>  <a href="#Nossos-Clientes">Nossos clientes</a></li>
+                          <li>  <a href="#Entre-em-contato">Entre em contato</a></li>
+                          <li class="celular"><a href=""><img id="honra"  src="/Assets/image/logoinstagram.svg" alt=""></a></li>
+                          <li class="celular"><a href=""><img id="honra"  src="/Assets/image/logoyoutube.svg" alt=""></a></li>
+                          <li class="celular"><a href=""><img id="honra"  src="/Assets/image/logolinkedin.svg" alt=""></a></li>
+              </ul>
 
         </nav>
     </header>
