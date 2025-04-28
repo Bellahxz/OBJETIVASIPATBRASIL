@@ -1,5 +1,7 @@
 /* rolagem suave */
 html {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
 
   overflow-x: hidden;
@@ -169,6 +171,27 @@ main {
 }
 
 /* ======== Links da navbar ======== */
+@media(max-width:1260px) {
+  .navbar a {
+    font-size: 20px !important; 
+  }
+
+}
+@media(max-width:1150px) {
+  .navbar a {
+    font-size: 18px !important; 
+  }
+}
+@media(max-width:1070px) {
+  .navbar a {
+    font-size: 17px !important; 
+  }
+}
+@media(max-width:1014px) {
+  .navbar a {
+    font-size: 16px !important; 
+  }
+}
 .navbar a {
   color: white;
   text-decoration: none;
@@ -376,8 +399,33 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
     font-size: 40px !important;
   }
 }
-
-
+@media (max-width: 500px)  {
+  .texto-elipse h1{
+    font-size: 35px !important;
+  }
+}
+@media (max-width: 480px)  {
+  .texto-elipse h1{
+    font-size: 30px !important;
+  }
+}
+@media (max-width: 380px)  {
+  .texto-elipse h1{
+    font-size: 27px !important;
+  }
+}
+@media (max-width: 350px)  {
+    .mascote img {
+      width: 200px !important;
+      margin-top: -20px !important;
+    }
+  .texto-elipse h1{
+    font-size: 24px !important;
+  }
+  .section-satisfacao {
+    margin-bottom: -4em;
+  }
+}
 /* ======== Rodapé da página ======== */
 #rodape {
   position: relative;
@@ -648,7 +696,7 @@ form {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  font-size: 32px;
+  font-size: 30px;
   color: #000;
   font-weight: 600;
   margin-top: 25px;
@@ -671,13 +719,44 @@ form {
   text-wrap: nowrap;
   gap: 10vw;
 }
+@media(max-width:1024px) {
+  label  {
+    font-size: 20px !important;
+  }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+}
+@media(max-width: 730px) {
+  .linhaformulario{
+    gap: 5vw;
+  }
+label  {
+  font-size: 18px !important;
+}
+}
+@media(max-width: 623px) {
+  .linhaformulario {
+    flex-wrap: wrap !important;
+    margin-bottom: 3.5em !important;
+  }
+  .campoformulario{
+    width: 100%;
+  }
+}
 
 label {
   font-size: 25px;
   font-weight: 500;
   display: flex;
+  margin-top: 20px;
   margin-left: 0.5em;
 }
 
@@ -695,6 +774,7 @@ textarea {
   font-family: "Poppins", sans-serif;
   font-size: 22px;
   width: 100%;
+  resize: none;
   height: 15rem;
   padding: 10px 10px 10px 20px;
   border: 0;
@@ -725,6 +805,34 @@ button {
   transition: color 0.3s ease;
   cursor: pointer;
 }
+@media(max-width: 1080px) {
+  form {
+    width: 80% !important;
+  }
+}
+@media(max-width: 1008px) {
+  form {
+    width: 85% !important;
+  }
+}
+@media(max-width: 950px) {
+  form {
+    width: 90% !important;
+  }
+}
+@media(max-width:673px) {
+  .leticia {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+  }
+  button.toma {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
 button.toma {
   overflow: hidden;
 }
@@ -753,6 +861,14 @@ button span {
 #enviar {
   background-color: #ffffff;
 }
+@media(max-width: 1024px) {
+  #enviar {
+    background-color: #0052cc !important;
+    color: white;
+  }
+
+}
+
 #limpar {
   background-color: #ffffff;
 }
@@ -916,11 +1032,6 @@ nav #lista-1 {
   display: flex !important;
 }
 
-@media(min-width: 970px) {
-.menu {
-  display: none;
-}
-}
 
 @media(max-width: 970px) {
   .navbar-textos, #logos-redessociais{
@@ -954,13 +1065,6 @@ nav #lista-1 {
     width: 40px !important;
     height: auto;
   }
-}
-
-.menu {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 @media (max-width: 1675px) {
   .navbar.shrink #logos-redessociais {
@@ -1023,7 +1127,7 @@ nav #lista-1 {
 @media (max-width: 1024px) {
 
   #texto-quem-somos {
-    font-size: 2.2vw;
+    font-size: 2.4vw;
     max-width: 80vw;
     width: 80vw;
     margin-top: -80px;
@@ -1035,8 +1139,11 @@ nav #lista-1 {
 
 /* Responsividade para celulares */
 @media (max-width: 686px) {
+  #vaitomando img {
+    width: 330px !important;
+  }
   #texto-quem-somos {
-    font-size: 3vw;
+    font-size: 20px;
     max-width: 90vw;
     width: 90vw;
     padding: 15px;
@@ -1044,18 +1151,11 @@ nav #lista-1 {
   }
   .caralho {
     flex-wrap: wrap;
+    gap: 0 !important;
+    row-gap: 1em !important;
+    margin-bottom: -5em !important;
   }
   
-}
-@media (max-width: 599px) {
-  #texto-quem-somos {
-    font-size: 3vw;
-    width: 90vw;
-    padding: 15px;
-  }
-  .caralho {
-    flex-wrap: wrap;
-  }
 }
 
 
@@ -1176,16 +1276,72 @@ h4 {
 }
 @media(max-width: 900px) {
   #SIPA img {
-    width: 250px !important;
+    width: 450px !important;
   }
 }
 .piru p {
-  margin-top: 2.5vw; /* ou use px, tipo 20px */
+  margin-top: 2.5vw; 
   font-weight: 700;
   width: 36vw;
   margin-left: auto;
   margin-right: auto;
 }
+@media(max-width: 1024px) {
+  #mamando-piru {
+    flex-wrap: wrap !important;
+  }
+  .piru p {
+
+    width: 440px;
+  }
+  .piru {
+    font-size: 19px;
+    height: 400px; 
+    width: 520px;
+  }
+}
+@media(max-width: 620px) {
+  .piru p {
+    margin-top: 5px;
+    width: 360px;
+  }
+  .piru {
+    font-size: 17px;
+    height: 350px; 
+    width: 450px;
+  }
+  #SIPA img {
+    width: 400px !important;
+    margin-bottom: -3.5em !important;
+  }
+}
+@media(max-width: 520px) {
+  .piru p {
+    margin-top: 5px;
+    width: 310px;
+  }
+  .piru {
+    font-size: 16px;
+    height: 360px; 
+    width: 400px;
+  }
+}
+@media(max-width: 450px) {
+  .piru p {
+    margin-top: 20px;
+    width: 260px;
+  }
+  .piru {
+    font-size: 14.5px;
+    height: 380px; 
+    width: 300px;
+  }
+  #SIPA img {
+    width: 300px !important;
+    margin-right: -1.5em;
+  }
+}
+
 #SIPA {
   margin-top: 1em;
   margin-right: 1em;
@@ -1227,7 +1383,7 @@ h4 {
   right: 0;
   width: 250px;
   margin-top: 90px;
-  transform: translateX(250px);
+  transform: translateX(2950px);
   transition: transform 250ms ease-in-out;
   background: #43C153;
 }
@@ -1336,13 +1492,16 @@ input[type=checkbox]:checked ~ .sidebarToggleIcon > .diagonal.part-2 {
     height: 100%;
     display: flex !important;
     width: 100%;
-    top: 50%;
+    top: 30%;
     height: 22px;
     width: 22px;
   }
 }
 
 @media(min-width: 769px) {
+  @media(max-width: 1024px) {
+
+
   .sidebarToggleIcon {
     transition: all 0.3s;
     box-sizing: border-box;
@@ -1353,7 +1512,7 @@ input[type=checkbox]:checked ~ .sidebarToggleIcon > .diagonal.part-2 {
     height: 200%;
     display: flex !important;
     width: 200%;
-    top: 50%;
+    top: 37%;
     gap: 5px;
     height: 32px;
     width: 22px;
@@ -1404,30 +1563,35 @@ input[type=checkbox]:checked ~ .sidebarToggleIcon > .diagonal.part-2 {
   margin-top: -11px;
   top: -15px;
 }
+a {
+  font-size: 22px !important;
+}
 #honra{
-  margin-top: -0.1em;
+  margin-top: 3em;
 }
 
 #sidebarMenu {
   height: 100%;
   position: fixed;
   right: 0;
-  width: 250px;
+  width: 370px;
   margin-top: 140px;
-  transform: translateX(250px);
-  transition: transform 250ms ease-in-out;
+  transform: translateX(370px);
+  transition: transform 250ms ease-in-out, margin-top 300ms ease; /* <-- adiciona aqui */
   background: #43C153;
 }
 
+/* Atenção: não pode ter .shrink #sidebarMenu isolado! */
+/* Tem que ser .navbar.shrink ~ #sidebarMenu ou algo parecido */
 .shrink {
   #sidebarMenu {
     margin-top: 110px;
-    transition: transform 250ms ease-in-out;
+    transition: transform 250ms ease-in-out, margin-top 300ms ease;
   }
 }
-
 }
-@media(min-width: 1024px) {
+}
+@media(min-width: 970px) {
   .sidebarToggleIcon {
     display: none !important;
   }
