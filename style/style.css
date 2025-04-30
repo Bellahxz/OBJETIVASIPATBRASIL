@@ -3,12 +3,16 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+
   overflow-x: hidden;
+}
 .clientes {
   text-align: center;
   padding: 40px 20px;
   background-color: #d9d9d9;
 }
+
+
 
 .clientes-carousel {
   overflow: hidden;
@@ -291,14 +295,29 @@ main {
   left: 0;
   width: 100%;
 }
-#onda {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 500px;
-  z-index: 0; /* ou ajuste dependendo da navbar */
+@media(max-width: 768px) {
+  .top-background {
+    display: none !important;
+  }
+ #toma {
+  margin-top: -7.4em !important;
+ }
+
+  .wave {
+    background: url(/Assets/image/wave_amarelo_sem_gradiente.svg) repeat-x;
+    background-size: 750px 100% !important; /* Reduz a largura da onda visível */
+  }
+  .wave:nth-of-type(2) {
+    animation: wave 11s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7777777777777s ease -1.25s infinite !important; 
+    opacity: 0.5;
+    top: -346px !important;
+    background-size: 760px 70% !important; /* Reduz a largura da onda visível */
+  }
+  .mascote {
+    margin-top: -6.5em;
+  }
 }
+
 @media(max-width: 1040px) {
   .top-background {
     top: 30px;
@@ -333,14 +352,14 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
 @media (max-width: 700px) {
   .mascote img {
     width: 350px !important;
-    margin-top: -20px !important;
+    margin-top: -5.5em !important;
   }
 }
 
 @media (max-width: 1290px)  {
   .mascote img {
-    margin-top: -40px;
-    width: 450px;
+    width: 400px;
+    margin-top: 0px !important;
   }
   .texto-elipse {
     position: relative;
@@ -755,11 +774,6 @@ label {
   display: flex;
   margin-top: 20px;
   margin-left: 0.5em;
-}
-
-input:focus, textarea:focus {
-  border: 3px solid #0052cc;
-  outline: 0;
 }
 
 input {
@@ -1243,7 +1257,7 @@ h4 {
 }
 @media (max-width:1000px) {
   .pergunta h3 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .chupingole {
     width: 75%;
@@ -1251,7 +1265,7 @@ h4 {
 }
 @media (max-width:700px) {
   .pergunta h3 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .chupingole {
     width: 75%;
@@ -1597,5 +1611,4 @@ a {
   .sidebarToggleIcon {
     display: none !important;
   }
-}
 }
