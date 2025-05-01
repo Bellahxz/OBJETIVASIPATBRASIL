@@ -774,8 +774,11 @@ label {
   display: flex;
   margin-top: 20px;
   margin-left: 0.5em;
-}
 
+}
+.chega {
+  margin-bottom: -1em;
+}
 input {
    font-family: "Poppins", sans-serif;
    font-size: 22px;
