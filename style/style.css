@@ -190,7 +190,7 @@ main {
 }
 @media(max-width:1014px) {
   .navbar a {
-    font-size: 16px !important; 
+    font-size: 18px !important; 
   }
 }
 .navbar a {
@@ -624,9 +624,10 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
   cursor: pointer;
   z-index: 10;
   position: absolute;
-  top: 50%;
   transform: translateY(-50%);
   transition: transform 0.2s ease;
+  padding: 0;
+  margin: 0;
 }
 
 .carousel-btn.left {
@@ -1365,7 +1366,7 @@ h4 {
   margin-top: 1em;
   margin-right: 1em;
 }
-@media (max-width: 1025px) {
+@media (max-width: 1040px) {
   .wave {
     top: -350px !important;
     height: 120px;
@@ -1614,4 +1615,48 @@ a {
   .sidebarToggleIcon {
     display: none !important;
   }
+}
+
+@media(max-height: 845px) {
+  #honra {
+    margin: 0;
+    width: 2.5em !important;
+    padding: 0;
+    margin-left: 0;
+  }
+
+  a {
+    margin: 0 !important;
+  }
+
+  .iphone {
+    margin-left: 1em !important;
+  }
+  li {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .sidebarMenuContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* começa do topo */
+    height: 100%; /* importante para o comportamento correto */
+  }
+
+  .baixo {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: auto; /* empurra pro final */
+    padding-bottom: 4.5em;
+  }
+
+  #sidebarMenu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
 }
