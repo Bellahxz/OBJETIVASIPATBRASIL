@@ -82,37 +82,18 @@ h2 {
   border-radius: 20px;
   padding: 25px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: left;
+  text-align: justify;
   transition: all 0.3s ease;
 }
-
-
-@media (max-width: 768px) {
-  .carousel-container {
-    padding: 0 10px;
-  }
-
-  .carousel {
-    gap: 20px;
-  }
-
-  .carousel-btn {
-    display: none;
-  }
-
+@media (max-width: 900px) {
   .card {
-    flex: 0 0 100%;
-    min-width: 100%;
-    max-width: 100%;
-    padding: 20px;
+    flex: 1 1 calc(50% - 20px) !important; /* 2 por linha */
   }
+}
 
-  .descricao-palestras h3 {
-    font-size: 22px;
-  }
-
-  .descricao-palestras p {
-    font-size: 16px;
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100% !important; /* 1 por linha */
   }
 }
 
