@@ -1,150 +1,213 @@
-// Efeito de redução no tamanho da navbar ao rolar a página
-window.addEventListener("scroll", function () {
-  const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("shrink");
-  } else {
-    navbar.classList.remove("shrink");
-  }
-});
 
-function initInfiniteCarousel(carousel, btnLeft, btnRight) {
-  const originalCards = [...carousel.querySelectorAll('.card')];
-  const gap = parseInt(getComputedStyle(carousel).gap) || 20;
-  const cardWidth = originalCards[0].offsetWidth + gap;
-  const totalOriginal = originalCards.length;
 
-  const totalCopies = 21;
-  const middleIndex = Math.floor(totalOriginal * totalCopies / 2);
+const cards = document.querySelectorAll(".card");
+const dots = document.querySelectorAll(".dot");
+const leftArrow = document.querySelector(".nav-arrow.left");
+const rightArrow = document.querySelector(".nav-arrow.right");
+let currentIndex = 0;
+let isAnimating = false;
 
-  const originalContent = carousel.innerHTML; // salva o conteúdo original
-  carousel.innerHTML = ''; // limpa
+function updateCarousel(newIndex) {
+	if (isAnimating) return;
+	isAnimating = true;
 
-  for (let i = 0; i < totalCopies; i++) {
-    originalCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.classList.add('clone');
-      carousel.appendChild(clone);
-    });
-  }
+	currentIndex = (newIndex + cards.length) % cards.length;
 
-  let currentIndex = middleIndex;
-  carousel.scrollLeft = currentIndex * cardWidth;
+	cards.forEach((card, i) => {
+		const offset = (i - currentIndex + cards.length) % cards.length;
 
-  function scrollToIndex(index, smooth = true) {
-    carousel.scrollTo({
-      left: index * cardWidth,
-      behavior: smooth ? 'smooth' : 'auto'
-    });
-  }
+		card.classList.remove(
+			"center",
+			"left-1",
+			"left-2",
+			"right-1",
+			"right-2",
+			"hidden"
+		);
 
-  function recentralizeIfNeeded() {
-    const minSafe = totalOriginal * 3;
-    const maxSafe = totalOriginal * (totalCopies - 3);
+		if (offset === 0) {
+			card.classList.add("center");
+		} else if (offset === 1) {
+			card.classList.add("right-1");
+		} else if (offset === 2) {
+			card.classList.add("right-2");
+		} else if (offset === cards.length - 1) {
+			card.classList.add("left-1");
+		} else if (offset === cards.length - 2) {
+			card.classList.add("left-2");
+		} else {
+			card.classList.add("hidden");
+		}
+	});
 
-    if (currentIndex < minSafe || currentIndex > maxSafe) {
-      currentIndex = middleIndex;
-      scrollToIndex(currentIndex, false);
-    }
-  }
+	dots.forEach((dot, i) => {
+		dot.classList.toggle("active", i === currentIndex);
+	});
 
-  btnLeft.addEventListener('click', () => {
-    currentIndex--;
-    scrollToIndex(currentIndex);
-    recentralizeIfNeeded();
-  });
 
-  btnRight.addEventListener('click', () => {
-    currentIndex++;
-    scrollToIndex(currentIndex);
-    recentralizeIfNeeded();
-  });
+
+	setTimeout(() => {
+		isAnimating = false;
+	}, 800);
 }
 
-window.addEventListener('load', () => {
-  const carousels = document.querySelectorAll('.carousel-container');
-
-  // Segurança
-  initInfiniteCarousel(
-    carousels[0].querySelector('.carousel'),
-    carousels[0].querySelector('.carousel-btn.left'),
-    carousels[0].querySelector('.carousel-btn.right')
-  );
-
-  // Saúde
-  initInfiniteCarousel(
-    carousels[1].querySelector('.carousel'),
-    carousels[1].querySelector('.carousel-btn.left'),
-    carousels[1].querySelector('.carousel-btn.right')
-  );
-
-  // Comportamento
-  initInfiniteCarousel(
-    carousels[2].querySelector('.carousel'),
-    carousels[2].querySelector('.carousel-btn.left'),
-    carousels[2].querySelector('.carousel-btn.right')
-  );
+leftArrow.addEventListener("click", () => {
+	updateCarousel(currentIndex - 1);
 });
 
-
-// efeito do rodape
-window.addEventListener('DOMContentLoaded', () => {
-  const footer = document.querySelector('footer');
-  const onda = document.querySelector('.onda-svg-footer');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        footer.classList.add('aparecer');
-        if (onda) onda.classList.add('aparecer');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.05
-  });
-
-  if (footer) {
-    observer.observe(footer);
-  }
+rightArrow.addEventListener("click", () => {
+	updateCarousel(currentIndex + 1);
 });
 
+dots.forEach((dot, i) => {
+	dot.addEventListener("click", () => {
+		updateCarousel(i);
+	});
+});
 
-  //celular menu
+cards.forEach((card, i) => {
+	card.addEventListener("click", () => {
+		updateCarousel(i);
+	});
+});
 
-  function showSidebar(event) {
-    event.preventDefault(); 
-    const celulas = document.querySelector(".celulas");
-    celulas.classList.add("show-sidebar");
-}
-function hideSidebar(event) {
-  event.preventDefault();
-  const celulas = document.querySelector(".celulas");
-  celulas.classList.remove("show-sidebar");
+document.addEventListener("keydown", (e) => {
+	if (e.key === "ArrowLeft") {
+		updateCarousel(currentIndex - 1);
+	} else if (e.key === "ArrowRight") {
+		updateCarousel(currentIndex + 1);
+	}
+});
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", (e) => {
+	touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", (e) => {
+	touchEndX = e.changedTouches[0].screenX;
+	handleSwipe();
+});
+
+function handleSwipe() {
+	const swipeThreshold = 50;
+	const diff = touchStartX - touchEndX;
+
+	if (Math.abs(diff) > swipeThreshold) {
+		if (diff > 0) {
+			updateCarousel(currentIndex + 1);
+		} else {
+			updateCarousel(currentIndex - 1);
+		}
+	}
 }
 
+updateCarousel(0);
 
-const fodase = document.querySelectorAll('.fodase');
 
-fodase.forEach(item => {
-  const Leticia = item.querySelector('.resposta');
-  Leticia.addEventListener('click', () => {
-    fodase.forEach(otherItem => {
-      if (otherItem !== item && otherItem.classList.contains('active')) {
-        otherItem.classList.remove('active');
-      }
+
+
+
+
+
+//SAUDE CARROSEL
+document.addEventListener('DOMContentLoaded', () => {
+  let indexSaude = 0;
+  const cardsSaude = document.querySelectorAll('.card-saude');
+  const totalCardsSaude = cardsSaude.length;
+
+  const updateCarouselSaude = () => {
+    cardsSaude.forEach((card, i) => {
+      card.classList.remove('center', 'left-1', 'right-1', 'left-2', 'right-2', 'hidden');
+      const offset = (i - indexSaude + totalCardsSaude) % totalCardsSaude;
+      if (offset === 0) card.classList.add('center');
+      else if (offset === totalCardsSaude - 1) card.classList.add('left-1');
+      else if (offset === 1) card.classList.add('right-1');
+      else if (offset === totalCardsSaude - 2) card.classList.add('left-2');
+      else if (offset === 2) card.classList.add('right-2');
+      else card.classList.add('hidden');      
     });
+  };
 
-    item.classList.toggle('active');
+  document.querySelector('.left-saude').addEventListener('click', () => {
+    indexSaude = (indexSaude - 1 + totalCardsSaude) % totalCardsSaude;
+    updateCarouselSaude();
   });
+
+  document.querySelector('.right-saude').addEventListener('click', () => {
+    indexSaude = (indexSaude + 1) % totalCardsSaude;
+    updateCarouselSaude();
+  });
+
+  updateCarouselSaude();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".pergunta").forEach((item) => {
-      item.addEventListener("click", () => {
-          item.parentElement.classList.toggle("active");
-      });
+
+//OUTRA FODENDO CARROSSEL MEIO AMBIENTE
+document.addEventListener('DOMContentLoaded', () => {
+  let indexComportamento = 0;
+  const cardsComportamento = document.querySelectorAll('.card-comportamento');
+  const totalCardsComportamento = cardsComportamento.length;
+
+  const updateCarouselComportamento = () => {
+    cardsComportamento.forEach((card, i) => {
+      card.classList.remove('center', 'left-1', 'right-1', 'left-2', 'right-2', 'hidden');
+      const offset = (i - indexComportamento + totalCardsComportamento) % totalCardsComportamento;
+      if (offset === 0) card.classList.add('center');
+      else if (offset === totalCardsComportamento - 1) card.classList.add('left-1');
+      else if (offset === 1) card.classList.add('right-1');
+      else if (offset === totalCardsComportamento - 2) card.classList.add('left-2');
+      else if (offset === 2) card.classList.add('right-2');
+      else card.classList.add('hidden');
+    });
+  };
+
+  document.querySelector('.left-comportamento').addEventListener('click', () => {
+    indexComportamento = (indexComportamento - 1 + totalCardsComportamento) % totalCardsComportamento;
+    updateCarouselComportamento();
   });
+
+  document.querySelector('.right-comportamento').addEventListener('click', () => {
+    indexComportamento = (indexComportamento + 1) % totalCardsComportamento;
+    updateCarouselComportamento();
+  });
+
+  updateCarouselComportamento();
 });
 
 
+
+//ATIVIDADES EU QUERO ME MATAR
+
+document.addEventListener('DOMContentLoaded', () => {
+  let indexAtividades = 0;
+  const cardsAtividades = document.querySelectorAll('.card-atividades');
+  const totalCardsAtividades = cardsAtividades.length;
+
+  const updateCarouselAtividades = () => {
+    cardsAtividades.forEach((card, i) => {
+      card.classList.remove('center', 'left-1', 'right-1', 'left-2', 'right-2', 'hidden');
+      const offset = (i - indexAtividades + totalCardsAtividades) % totalCardsAtividades;
+      if (offset === 0) card.classList.add('center');
+      else if (offset === totalCardsAtividades - 1) card.classList.add('left-1');
+      else if (offset === 1) card.classList.add('right-1');
+      else if (offset === totalCardsAtividades - 2) card.classList.add('left-2');
+      else if (offset === 2) card.classList.add('right-2');
+      else card.classList.add('hidden');
+    });
+  };
+
+  document.querySelector('.left-atividades').addEventListener('click', () => {
+    indexAtividades = (indexAtividades - 1 + totalCardsAtividades) % totalCardsAtividades;
+    updateCarouselAtividades();
+  });
+
+  document.querySelector('.right-atividades').addEventListener('click', () => {
+    indexAtividades = (indexAtividades + 1) % totalCardsAtividades;
+    updateCarouselAtividades();
+  });
+
+  updateCarouselAtividades();
+});
