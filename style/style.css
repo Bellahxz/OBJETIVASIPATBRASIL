@@ -496,227 +496,513 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
 }
 
 /* ======== Seção de Palestras ======== */
-.titulo-palestras {
-  color: #FFC545;
-  font-size: 40px;
-  margin-top: 20px; /* menor distância do topo */
-  margin-bottom: 0px;
-  text-align: center;
-  background-color: white;
-  padding: 20px 0;
+
+/* ======== Seção de Palestras ======== */
+.Saude, .Comportamento, .Atividades {
+  margin-top: 2em;
 }
-
-#palestras {
-  background-color: #d9d9d9;
-  padding: 20px 20px 60px;
-  color: black;
+#comp {
+  max-width: 800px;
+  width: 100%;
 }
-
-.descricao-palestras {
-  text-align: center;
-  margin-bottom: 40px;
+#saudas {
+  max-width: 952px;
+  width: 100%;
 }
-
-.descricao-palestras h3 {
-  color: #0052cc;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-/* ======== Carrossel ======== */
-.carousel-container {
-  max-width: 1250px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  padding: 0 200px; /* Reserva espaço lateral pros botões */
-}
-
-
-.carousel {
+.Seguranca, .Saude, .Comportamento, .Atividades {
+  background-color: #D9D9D9;
+  border-radius: 25px;
   display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  gap: 20px;
-  padding: 20px 0;
+  justify-content: center;
+}
+#seg {
+  max-width: 713px;
+  width: 100%; /* Adapta-se ao container pai */
+}
+.para-pales {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 0 20px; /* Um pouco de respiro nas laterais */
+  box-sizing: border-box;
 }
 
 
-.carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+
+h3 {
+  margin: 15px 0 0 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+.card h4, .card-saude h4, .card-comportamento h4 {
+  margin-top: 25px;
+  font-size: 32px;
+}
+.card p, .card-saude p, .card-comportamento p {
+  font-weight: 600;
+  margin: 20px 20px 30px 20px;
+  text-align: justify;
+  font-size: 20px;
 }
 
-.card {
-  flex: 0 0 calc((100% - 200px) / 3); /* 3 cards + 2 gaps de 20px */
-  max-width: calc((100% - 200px) / 3);
-  background: white;
-  color: black;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: left;
-  transition: all 0.3s ease;
+.love {
+  display: flex;
+  justify-content: center;
 }
 
 
-@media (max-width: 768px) {
-  .carousel-container {
-    padding: 0 10px;
+
+.carousel-container, .carousel-container-saude, .carousel-container-comportamento, .carousel-container-atividades{
+	width: 100vw;
+	height: 450px;
+	position: relative;
+	perspective: 1000px;
+	margin-top: 25px;
+  margin-bottom: 70px;
+}
+
+.carousel-track, .carousel-track-saude, .carousel-track-comportamento, .carousel-track-atividades{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card, .card-saude, .card-comportamento{
+	position: absolute;
+	width: 414px;
+	height: 506px;
+	background: white;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	cursor: pointer;
+}
+
+
+.card.center, .card-saude.center, .card-comportamento.center{
+	z-index: 10;
+	transform: scale(1) translateZ(0);
+}
+
+.card-atividades.center {
+  z-index: 10;
+  transform: scale(1) translateX(350px);
+}
+
+.card.left-2, .card-saude.left-2, .card-comportamento-left-2, .card-atividades.left-2 {
+	opacity: 0;
+	pointer-events: none;
+}
+
+
+.card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+	transform: translateX(-450px) scale(1) translateZ(0px);
+	opacity: 1;
+}
+.card-atividades.left-1 {
+  transform: translateX(-350px) scale(1) translateZ(0px);
+	opacity: 1;
+}
+
+.card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+	z-index: 5;
+	transform: translateX(450px) scale(1) translateZ(0px);
+	opacity: 1;
+}
+.card-atividades.right-1 {
+  transform: translateX(450px) scale(1) translateZ(0px);
+  opacity: 0;
+}
+
+.card.right-2, .card-saude.right-2, .card-comportamento.right-2, .card-atividades.right-2{
+	opacity: 0;
+	pointer-events: none;
+}
+
+.card.hidden, .card-saude.hidden, .card-comportamento.hidden, .card-atividades.hidden{
+	opacity: 0;
+	pointer-events: none;
+}
+
+.nav-arrow, .nav-arrow-saude, .nav-arrow-comportamento, .nav-arrow-atividades{
+	position: fixed; 
+	top: 50%;
+	transform: translateY(-50%);
+	color: rgb(0, 0, 0);
+	width: 100px;
+	height: 100px;
+  background: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 20;
+	transition: all 0.3s ease;
+	font-size: 10rem;
+	border: none;
+	outline: none;
+}
+
+.nav-arrow:hover, .nav-arrow-saude:hover, .nav-arrow-comportamento:hover, .nav-arrow-atividades:hover {
+	transform: translateY(-50%) scale(1.2);
+}
+
+.nav-arrow.left, .nav-arrow-saude.left-saude, .nav-arrow-comportamento.left-comportamento, .nav-arrow-atividades.left-atividades{
+	left: 100px; 
+}
+
+.nav-arrow.right, .nav-arrow-saude.right-saude, .nav-arrow-comportamento.right-comportamento, .nav-arrow-atividades.right-atividades{
+	right: 100px; 
+}
+
+@media (max-width: 1738px) { 
+  .card, .card-saude, .card-comportamento{
+    width: 384px;
+    height: 476px;
+	}
+  .nav-arrow, .nav-arrow-saude, .nav-arrow-comportamento, .nav-arrow-atividades{
+    font-size: 8rem;
+    height: 60px;
+    width: 60px;
+  }
+  .nav-arrow.left, .nav-arrow-saude.left-saude, .nav-arrow-comportamento.left-comportamento, .nav-arrow-atividades.left-atividades{
+    left: 0; 
+  }
+  
+  .nav-arrow.right, .nav-arrow-saude.right-saude, .nav-arrow-comportamento.right-comportamento, .nav-arrow-atividades.right-atividades{
+    right: 0; 
+  }
+}
+@media (max-width: 1430px) { 
+  .card, .card-saude, .card-comportamento{
+    width: 354px;
+    height: 446px;
+	}
+  .card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+    transform: translateX(-380px) scale(1) translateZ(0px);
+  }
+  
+  
+
+  .card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+    transform: translateX(380px) scale(1) translateZ(0px);
+  }
+  
+  .nav-arrow, .nav-arrow-saude, .nav-arrow-comportamento, .nav-arrow-atividades{
+    font-size: 8rem;
+    height: 60px;
+    width: 60px;
+  }
+  .nav-arrow.left, .nav-arrow-saude.left-saude, .nav-arrow-comportamento.left-comportamento, .nav-arrow-atividades.left-atividades{
+    left: 0; 
+  }
+  
+  .nav-arrow.right, .nav-arrow-saude.right-saude, .nav-arrow-comportamento.right-comportamento, .nav-arrow-atividades.right-atividades{
+    right: 0; 
+  }
+  .card h4, .card-saude h4, .card-comportamento h4 {
+    font-size: 30px;
+  }
+  .card p, .card-saude p, .card-comportamento p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1264px) { 
+  .carousel-container, .carousel-container-saude, .carousel-container-comportamento{
+    margin-top: -30px;
+  }
+  .card, .card-saude, .card-comportamento{
+    width: 314px;
+    height: 406px;
+	}
+  .card h4, .card-saude h4, .card-comportamento h4 {
+    font-size: 24px;
+  }
+  .card p, .card-saude p, .card-comportamento p {
+    font-size: 17px;
+  }
+  .nav-arrow, .nav-arrow-saude, .nav-arrow-comportamento, .nav-arrow-atividades{
+    font-size: 6rem;
+    height: 60px;
+    width: 60px;
+  }
+  .card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+    transform: translateX(-330px) scale(1) translateZ(0px);
   }
 
-  .carousel {
-    gap: 20px;
+  .card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+    transform: translateX(330px) scale(1) translateZ(0px);
   }
-
-  .carousel-btn {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 100%;
-    min-width: 100%;
-    max-width: 100%;
-    padding: 20px;
-  }
-
-  .descricao-palestras h3 {
+}
+@media (max-width: 1200px) { 
+  .card, .card-saude, .card-comportamento{
+    width: 284px;
+    height: 376px;
+	}
+  .card h4, .card-saude h4, .card-comportamento h4 {
     font-size: 22px;
   }
-
-  .descricao-palestras p {
+  .card p, .card-saude p, .card-comportamento p {
     font-size: 16px;
   }
+  .card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+    transform: translateX(-300px) scale(1) translateZ(0px);
+  }
+
+  .card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+    transform: translateX(300px) scale(1) translateZ(0px);
+  }
+}
+@media (max-width: 1000px) { 
+  .carousel-container, .carousel-container-saude, .carousel-container-comportamento{
+    margin-top: -60px;
+  }
+  .card, .card-saude, .card-comportamento{
+    width: 254px;
+    height: 346px;
+	}
+  .card h4, .card-saude h4, .card-comportamento h4 {
+    font-size: 20px;
+  }
+  .card p, .card-saude p, .card-comportamento p {
+    font-size: 14px;
+  }
+  .card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+    transform: translateX(-270px) scale(1) translateZ(0px);
+  }
+
+  .card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+    transform: translateX(270px) scale(1) translateZ(0px);
+  }
 }
 
-.card h4 {
-  font-size: 22px;
-  font-weight: bold;
-  color: #0052cc;
-  margin-bottom: 10px;
-  text-align: center;
+@media (max-width: 900px) {
+  .carousel-container, .carousel-container-saude, .carousel-container-comportamento{
+    margin-top: 20px;
+  }
+  .card, .card-saude, .card-comportamento{
+    width: 414px;
+    height: 506px;
+	}
+  .card h4, .card-saude h4, .card-comportamento h4 {
+    margin-top: 25px;
+    font-size: 32px;
+  }
+  .card p, .card-saude p, .card-comportamento p {
+    font-weight: 600;
+    margin: 20px 20px 30px 20px;
+    text-align: justify;
+    font-size: 20px;
+  }
+  .card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+		transform: translateX(-120px) scale(0.9) translateZ(-100px);
+	}
+
+
+  .card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+		transform: translateX(120px) scale(0.9) translateZ(-100px);
+	}
+
+}
+@media (max-width: 670px) {
+  .carousel-container, .carousel-container-saude, .carousel-container-comportamento{
+    margin-top: 20px;
+  }
+  .card, .card-saude, .card-comportamento{
+    width: 364px;
+    height: 456px;
+	}
+  .card h4, .card-saude h4, .card-comportamento h4 {
+    margin-top: 25px;
+    font-size: 32px;
+  }
+  .card p, .card-saude p, .card-comportamento p {
+    font-weight: 600;
+    margin: 20px 20px 30px 20px;
+    text-align: justify;
+    font-size: 20px;
+  }
+  .card.left-1, .card-saude.left-1, .card-comportamento.left-1{
+    opacity: 0;
+	}
+
+
+  .card.right-1, .card-saude.right-1, .card-comportamento.right-1{
+    opacity: 0;
+	}
 }
 
-/* ======== Responsividade ======== */
-@media (max-width: 1200px) {
-  .carousel-container {
-    padding: 0px 10px;
-  }
 
-  .carousel {
-    gap: 200px;
-  }
 
-  .carousel-btn {
-    display: none;
-  }
+.card-atividades {
+  margin-top: 20px;
+  position: absolute;
+  width: 624px;
+  height: 520px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
 
-  .card {
-    flex: 0 0 100%;
-    max-width: 2vw;
-    max-height: 15vw;
-    padding: 20vw;
-  }
+.card-atividades h4 {
+  margin-top: -5px;
+  font-size: 26px;
+  padding: 0 20px;
+  margin-bottom: 5px;
+}
+#ati {
+  max-width: 782px;
+  width: 100%;
+}
+.card-atividades p {
+  font-weight: 500;
+  margin: 10px 20px;
+  text-align: justify;
+  font-size: 20px;
+}
 
-  .descricao-palestras h3 {
-    font-size: 31px;
+.card-atividades .card-img {
+  width: 93%;
+  height: 233px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 30px auto 10px auto;
+  display: block;
+}
+@media(max-width:1466px) {
+  .card-atividades {
+    width: 564px;
+    height: 460px;
   }
-
-  .descricao-palestras p {
+  .card-atividades h4 {
     font-size: 25px;
   }
+  .card-atividades p {
+    font-size: 19px;
+    margin-top: 0px;
+  }
+  
+  .card-atividades .card-img {
+    height: 213px;
+  }
+  .card-atividades.left-1 {
+    transform: translateX(-290px) scale(1) translateZ(0px);
+    opacity: 1;
+  }
+  .card-atividades.center {
+    z-index: 10;
+    transform: scale(1) translateX(290px);
+  }
 }
-
-@media (max-width: 768px) {
-  .carousel-container {
-    padding: 0 10px;
+@media(max-width:1265px) {
+  .card-atividades {
+    width: 524px;
+    height: 420px;
   }
-
-  .carousel {
-    gap: 20px;
-  }
-
-  .carousel-btn {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 80%;
-    min-width: 80%;
-    max-width: 80%;
-    padding: 20px;
-  }
-
-  .descricao-palestras h3 {
+  .card-atividades h4 {
     font-size: 22px;
   }
-
-  .descricao-palestras p {
-    font-size: 16px;
+  .card-atividades p {
+    font-size: 17px;
+    margin-top: -5px;
+  }
+  .card-atividades.left-1 {
+    transform: translateX(-270px) scale(1) translateZ(0px);
+    opacity: 1;
+  }
+  .card-atividades.center {
+    z-index: 10;
+    transform: scale(1) translateX(270px);
+  }
+}
+@media(max-width:1175px) {
+  .card-atividades {
+    width: 484px;
+    height: 380px;
+  }
+  .card-atividades h4 {
+    font-size: 22px;
+  }
+  .card-atividades p {
+    font-size: 17px;
+    margin-top: 0px;
+  }
+  .card-atividades .card-img {
+    height: 163px;
+    margin-bottom: 15px;
+  }
+  .card-atividades.left-1 {
+    transform: translateX(-250px) scale(1) translateZ(0px);
+    opacity: 1;
+  }
+  .card-atividades.center {
+    z-index: 10;
+    transform: scale(1) translateX(250px);
+  }
+}
+@media(max-width:1114px) {
+  .card-atividades {
+    width: 624px;
+    height: 520px;
+  }
+  .card-atividades h4 {
+    font-size: 26px;
+  }
+  .card-atividades p {
+    font-size: 20px;
+    margin-top: 0px;
+  }
+  .card-atividades .card-img {
+    height: 163px;
+    margin-bottom: 15px;
+  }
+  .card-atividades.left-1 {
+    opacity: 0;
+  }
+  .card-atividades.center {
+    z-index: 10;
+    transform: scale(1) translateX(0px);
+  }
+}
+@media(max-width:760px) {
+  .card-atividades {
+    margin-top: 10px;
+    width: 524px;
+    height: 520px;
+  }
+  .card-atividades .card-img {
+    height: 263px;
+    margin-bottom: 15px;
+  }
+}
+@media(max-width:660px) {
+  .card-atividades {
+    margin-top: 100px;
+    width: 384px;
+    height: 590px;
+  }
+  .card-atividades .card-img {
+    height: 263px;
+    margin-bottom: 15px;
+  }
+  .carousel-container-atividades{
+    margin-bottom: 180px;
   }
 }
 
-.carousel-btn {
-  font-size: 3.5rem;
-  background: none;
-  border: none;
-  color: black;
-  cursor: pointer;
-  z-index: 10;
-  position: absolute;
-  transform: translateY(-50%);
-  transition: transform 0.2s ease;
-  padding: 0;
-  margin: 0;
-}
-
-.carousel-btn.left {
-  left: 0; /* Agora está dentro do padding da container */
-}
-
-.carousel-btn.right {
-  right: 0;
-}
-
-.carousel-btn:hover {
-  transform: translateY(-50%) scale(1.2);
-}
-
-.carousel-btn:active {
-  color: rgb(75, 75, 75);
-  background: none;
-  outline: none;
-}
 
 
-
-/* Esconde as setas no mobile */
-@media (max-width: 1200px) {
-  .carousel-wrapper {
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  .carousel {
-    gap: 15px;
-  }
-
-  .card {
-    flex: 0 0 80%;
-    min-width: 80%;
-    max-width: 80%;
-  }
-
-  .carousel-btn {
-    display: none;
-  }
-}
-.palestra-bloco {
-  background-color: #d9d9d9;
-  padding: 40px 20px 60px;
-  margin: 5px 0; /* espaço branco acima e abaixo */
-  border-radius: 20px; /* opcional, deixa mais suave */
-}
+/* ======== Seção de Contato ======== */
 form {
   font-family: "Poppins", sans-serif;
   text-align: center;
@@ -852,7 +1138,7 @@ textarea {
 
 /* Animação botões */
 
-button {
+button.toma {
   position: relative;
   font-family: "Poppins", sans-serif;
   text-align: center;
@@ -872,9 +1158,16 @@ button {
   form {
     width: 80% !important;
   }
+    .chupingole {
+      width: 80% !important;
+    }
+
 }
 @media(max-width: 1008px) {
   form {
+    width: 85% !important;
+  }
+  .chupingole {
     width: 85% !important;
   }
 }
@@ -971,6 +1264,7 @@ footer {
   text-align: center;
   color: white;
   z-index: 1;
+  margin-bottom: -19px;
 }
 
 footer h3 {
@@ -1239,6 +1533,12 @@ h4 {
   margin-left: auto;
   margin-right: auto;
 }
+@media(max-width:950px) {
+  .chupingole {
+    width: 95% !important;
+  }
+}
+
 .pergunta {
   display: flex;
   justify-content: space-between; /* separa o título da seta */
