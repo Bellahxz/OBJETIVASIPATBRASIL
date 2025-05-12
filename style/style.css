@@ -1115,26 +1115,27 @@ input {
    border-radius: 50px;
    padding-left: 10px;
    box-sizing: border-box;
-   outline-color: #0052cc;
+   outline: none;
 }
 
 textarea {
   font-family: "Poppins", sans-serif;
   font-size: 22px;
+  outline: none;
   width: 100%;
   resize: none;
   height: 15rem;
   padding: 10px 10px 10px 20px;
   border: 0;
   border-radius: 50px;
-  outline-color: #0052cc;
-
   box-sizing: border-box;
 }
 .campodetexto {
   margin-top: 2em;
 }
-
+input:focus, textarea:focus {
+  border: 3px solid #0052cc;
+}
 
 /* Animação botões */
 
