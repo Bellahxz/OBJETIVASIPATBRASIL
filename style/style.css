@@ -1474,7 +1474,7 @@ nav #lista-1 {
   text-align: justify;
   max-width: 30vw;
   width: 40vw;
-  margin: -1em auto 0 auto;
+  margin: -2.2em auto 0 auto;
   padding: 20px;
 }
 /* Responsividade para tablets */
@@ -2067,4 +2067,21 @@ p::selection {
 h3::selection {
   background-color: #0052cc;
   color: white;
+}
+
+.Obrigado {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+}
+.Nada {
+  display: flex;
+  height: 600px;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  border-radius: 60px 40px 60px 30px;
+  width: 600px;
+  background-color: #43C153;
 }
