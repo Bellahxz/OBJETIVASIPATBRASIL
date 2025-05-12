@@ -2069,19 +2069,245 @@ h3::selection {
   color: white;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+.corpo {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 .Obrigado {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: auto;
-
+  justify-content: center; /* se quiser centralizar verticalmente */
 }
+
+
+.aiai {
+  margin: 1em;
+  color: #0052cc;
+  font-size: 60px;
+  text-align: center;
+}
+
+.Nada {
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.nao {
+  margin: 1em;
+}
+
+.maracutaia {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* A onda */
+.onda {
+  width: 100%;
+  max-height: 317px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Ícones sobre a onda */
+.duarte {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  z-index: 2;
+}
+
+.duarte img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Fundo amarelo no fim da página */
+.fundo-amarelo {
+  background-color: #FFC545; /* cor da onda */
+  height: 12px;
+  margin-top: -12px;
+  width: 100%;
+  z-index: 0;
+}
+
+
 .Nada {
   display: flex;
-  height: 600px;
   align-content: flex-start;
   justify-content: space-evenly;
-  border-radius: 60px 40px 60px 30px;
-  width: 600px;
-  background-color: #43C153;
+  width: 100%;
 }
+
+.aiai {
+  margin: 1em;
+  margin-bottom: 0.4em;
+  color: #0052cc;
+  font-size: 60px;
+  text-align: center;
+}
+
+#amem {
+  width: 195px; height: 195px;
+}
+#inferno {
+  width: 180px; height: 180px;
+}
+/* Responsividade */
+@media screen and (max-width: 1204px) {
+  .aiai {
+    font-size: 5vw;
+  }
+  #inferno {
+  width: 120px; 
+  height: auto;
+}
+#amem {
+  width: 150px;
+  height: auto;
+}
+  .Nada img {
+    width: 150px;
+    height: auto;
+  }
+
+  .nao img {
+    width: 200px;
+    height: auto;
+  }
+
+  .duarte img {
+    width: 40px;
+
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .aiai {
+    font-size: 36px;
+  }
+  #inferno {
+  width: 100px; 
+  height: auto;
+}
+#amem {
+  width: 130px;
+  height: auto;
+}
+  .Nada img {
+    width: 120px;
+    height: auto;
+  }
+  .nao img {
+    width: 150px;
+    height: auto;
+  }
+
+  .duarte {
+    gap: 0.5em;
+  }
+
+  .duarte img {
+    width: 32px;
+    
+  }
+  .onda {
+ height:  200px;
+ margin-bottom: -3em;
+}
+.fundo-amarelo {
+  height: 100px;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .aiai {
+    font-size: 24px;
+  }
+
+  .Nada img {
+    width: 100px;
+  }
+
+  .nao img {
+    width: 120px;
+  }
+
+  .duarte img {
+    width: 28px;
+  }
+}
+/* O SVG da onda para telas maiores que 1920px */
+.onda-svg-footer {
+  display: none; /* Inicialmente escondido */
+  width: 100%;
+  z-index: 0;
+}
+@media (min-width: 1940px) {
+  .onda {
+    display: none !important; /* Esconde imagem da onda */
+  }
+
+  .onda-svg-footer {
+    z-index: 0; /* Altere de -1 para 0 ou mais */
+    display: block;
+    transform: scaleY(2.5);
+    transform-origin: center;
+  }
+
+  .fundo-amarelo {
+    display: none;
+  }
+
+  .aiai {
+    font-size: 4vw; /* Escala com base na largura da tela */
+  }
+
+  .Nada img,
+  .nao img,
+  #inferno,
+  #amem {
+    width: 12vw;
+    height: auto;
+  }
+
+  .duarte {
+    bottom: 0;
+    gap: 2vw;
+    padding-bottom: -20em;
+    margin-bottom: -7em;
+  }
+
+  .duarte img {
+    width: 2vw;
+    height: auto;
+  }
+
+  .Obrigado, .Nada, .nao {
+    padding: 2vw;
+  }
+}
+
