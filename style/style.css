@@ -386,6 +386,7 @@ QUEIME NO INFERNO PARA TODA ETERNIDADE) */
   margin-bottom: 100px;
 }
 
+
 .texto-elipse .elipse {
   width: 100%;
   height: auto;
@@ -2043,4 +2044,27 @@ img {
   div {
         scroll-margin-top: -50px;
   }
+}
+@media (max-width: 1015px) {
+      .navbar-textos {
+        gap: 20px;
+      }
+}
+
+.texto-elipse h1::selection {
+  background-color: white;
+  color: #0052cc;
+}
+
+h2::selection {
+  background-color: #0052cc;
+  color: white;
+}
+p::selection {
+  background-color: #0052cc;
+  color: white;
+}
+h3::selection {
+  background-color: #0052cc;
+  color: white;
 }
