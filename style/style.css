@@ -1072,10 +1072,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
 }
 @media(max-width: 730px) {
   .linhaformulario{
@@ -1467,7 +1463,7 @@ nav #lista-1 {
 #vaitomando {
   background-color: #0052cc;
   padding: 2vw;
-  border-radius: 50px 50px 50px 50px;
+  border-radius: 30px 30px 30px 30px;
   margin: 0 auto;
   flex-shrink: 1;
 } 
@@ -1480,7 +1476,6 @@ nav #lista-1 {
   margin: -1em auto 0 auto;
   padding: 20px;
 }
-
 /* Responsividade para tablets */
 @media (max-width: 1024px) {
 
@@ -1490,15 +1485,24 @@ nav #lista-1 {
     width: 80vw;
     margin-top: -80px;
   }
+  #vaitomando {
+    margin-left: 1em;
+  }
   #vaitomando img {
     width: 55vw !important;
+    height: 40vw !important;
   }
 }
 
 /* Responsividade para celulares */
 @media (max-width: 686px) {
+  #vaitomando {
+        margin-left: auto;
+        padding: 20px;
+  }
   #vaitomando img {
-    width: 330px !important;
+    width: 430px !important;
+    height: 280px !important;
   }
   #texto-quem-somos {
     font-size: 20px;
@@ -1515,7 +1519,11 @@ nav #lista-1 {
   }
   
 }
-
+@media (max-width:1500px) {
+    #vaitomando img {
+    height: 280px !important;
+  }
+}
 
 #vaitomando img {
   width: 42vw;
@@ -2003,4 +2011,36 @@ a {
     flex-direction: column;
   }
   
+}
+
+
+
+/* Slideshow container */
+.slideshow-container .impa{
+  object-fit: cover; /* Preenche sem distorcer */
+  border-radius: 30px; /* Arredonda as bordas */
+}
+
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+@media (max-width: 768px) {
+  div {
+        scroll-margin-top: -50px;
+  }
 }
