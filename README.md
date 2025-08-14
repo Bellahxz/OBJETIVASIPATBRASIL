@@ -14,6 +14,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🌐 Site
 
+https://bellahxz.github.io/OBJETIVASIPATBRASIL/
+
 ## 🖥️ Integrantes
 
 Diana Brian de Souza <br>
