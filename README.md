@@ -15,6 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 🌐 Site
 
 https://bellahxz.github.io/OBJETIVASIPATBRASIL/
+https://www.objetivasipatbrasil.com.br/
 
 ## 🖥️ Integrantes
 
